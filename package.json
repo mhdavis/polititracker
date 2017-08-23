@@ -1,0 +1,29 @@
+{
+  "name": "localrace",
+  "version": "1.0.0",
+  "description": "An application for tracking local politics in your area.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhdavis/localrace.git"
+  },
+  "author": "Michael Davis, Kyle Scott, Nick Grismore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mhdavis/localrace/issues"
+  },
+  "homepage": "https://github.com/mhdavis/localrace#readme",
+  "devDependencies": {
+    "handlebars-helper-css": "^0.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.4.1",
+    "sequelize": "^4.7.2"
+  }
+}
