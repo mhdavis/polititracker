@@ -3,6 +3,12 @@ const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
+// Passport Imports
+// =============================================================
+const passport = require('passport');
+const session = require('express-session');
+const env = require('dotenv').load();
+
 // Express App
 // =============================================================
 let app = express();
@@ -14,10 +20,18 @@ let db = require("./app/models");
 
 // Body-Parser Setup
 // =============================================================
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded( { extend: true } ));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// Passport
+// =============================================================
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized:true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 // Static HTML Pages
 // =============================================================
@@ -25,16 +39,17 @@ app.use(express.static('app/public'));
 
 // Set Handlebars
 // =============================================================
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.set('views', './app/views');
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Set Routes
 // =============================================================
-const homeRoutes = require("./app/controllers/home-controller.js");
-const userRoutes = require("./app/controllers/users-controller.js");
+let authRoutes = require("./app/routes/auth.js")(app, passport);
 
-app.use("/", homeRoutes);
-app.use("/user", usersRoutes);
+// Passport Strategies
+// =============================================================
+require('./app/config/passport/passport.js')(passport, db.User);
 
 // Sync Sequelize Models then Start Server
 // =============================================================

@@ -58,4 +58,4 @@ typings/
 .env
 
 # Config
-config/
+config.json

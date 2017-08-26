@@ -1,10 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define('user', {
-        username: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1]
+                len: [1],
+                isEmail: true
             }
         },
 
@@ -16,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
 
-        first_name: {
+        firstname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -24,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
 
-        last_name: {
+        lastname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -32,15 +33,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
 
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        
-        residence: {
+        address: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
