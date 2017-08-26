@@ -39,8 +39,12 @@ app.use(express.static('app/public'));
 
 // Set Handlebars
 // =============================================================
+app.engine("handlebars", exphbs(
+  { defaultLayout: "main",
+    layoutsDir: "./app/views/layouts"
+  })
+);
 app.set('views', './app/views');
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Set Routes
