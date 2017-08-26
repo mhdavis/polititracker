@@ -23,6 +23,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
+
     body {
         background-image: url('../flag-background.jpg');
         background-size: cover;
@@ -103,6 +104,13 @@
     .nav a:hover {
         color: red;
     }
+    .pannel {
+
+      padding: 10px;
+    }
+    .innerPannel {
+      background-color: white;
+    }
     </style>
     <title>Making Democracy Accessible</title>
     </head>
@@ -128,20 +136,18 @@
             <!-- Log-in Form -->
             <div class="log-in-wrapper">
                 <form>
-                    <!-- Username field -->
-                    <div class="form-group user-input">
-                        <label for="username">User Name:</label>
-                        <input type="text" class="form-control" id="username" size="25">
+                  <div class="col-lg-4 pannel">
+                    <p class="innerPannel">Civic Info</p>
+                    <div class="info">
+                      <p>your du</p>
                     </div>
-                    <!-- Password field -->
-                    <div class="form-group password-input">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" size="25">
-                    </div>
-                    <div class="form-group submit-input">
-                        <input type="button" value="Log In" class="form-control" id="submit-button" size="10">
-                    </div>
-                    <p><b>Don't have an account? Sign up <a href="/registration.html">here</a>!</b></p>
+                  </div>
+                  <div class="col-lg-4 pannel">
+                    <p class="innerPannel">Twitter</p>
+                  </div>
+                  <div class="col-lg-4 pannel">
+                    <p class="innerPannel">News</p>
+                  </div>
                 </form>
             </div>
         </div>
