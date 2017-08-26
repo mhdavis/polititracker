@@ -77,7 +77,32 @@
         opacity: 0.85;
         font-size: 18px;
     }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: red;
+    }
 
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color: blue;
+    }
+/*
     nav {
         width: 100%;
         background-color: white;
@@ -102,13 +127,33 @@
 
     .nav a:hover {
         color: red;
+    }*/
+    .pannel {
+      padding: 10px;
+      color: red;
+    }
+    .innerPannel{
+      background-color: red;
+      color: white;
+      font-size: 30px;
+    }
+    .pannelContent {
+      background-color: white;
+      color: blue;
+      font-size: 18px;
+      text-align: left;
     }
     </style>
     <title>Making Democracy Accessible</title>
     </head>
     <!-- Navigation section -->
     <nav>
-        <ul class="nav text-right">
+      <ul>
+        <li><a href="index.html">Index</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="registration.html">Registration</a></li>
+      </ul>
+        <!-- <ul class="nav text-right">
             <a href="/about.html">
                 <li>About</li>
             </a>
@@ -118,30 +163,28 @@
             <a href="/profile.html">
                 <li>Profile</li>
             </a>
-        </ul>
+        </ul> -->
     </nav>
 
     <body>
         <div class="container-fluid">
             <!-- Jumbotron with generic image -->
-            <div class="jumbotron text-center"><img id="log-in-image" src="https://notinwestminster.files.wordpress.com/2015/02/flags.png"></div>
+            <div class="jumbotron text-center"><h1>Welcome!</h1></div>
             <!-- Log-in Form -->
             <div class="log-in-wrapper">
                 <form>
-                    <!-- Username field -->
-                    <div class="form-group user-input">
-                        <label for="username">User Name:</label>
-                        <input type="text" class="form-control" id="username" size="25">
-                    </div>
-                    <!-- Password field -->
-                    <div class="form-group password-input">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" size="25">
-                    </div>
-                    <div class="form-group submit-input">
-                        <input type="button" value="Log In" class="form-control" id="submit-button" size="10">
-                    </div>
-                    <p><b>Don't have an account? Sign up <a href="/registration.html">here</a>!</b></p>
+                  <div class="col-lg-4 pannel">
+                    <p class="innerPannel">Profile</p>
+                    <p class="pannelContent">Name: <br> Address: <br> Electoral District: <br>Senator <br>upcoming race dates </p>
+                  </div>
+                  <div class="col-lg-4 pannel">
+                    <p class="innerPannel">Twitter</p>
+                    <p class="pannelContent"></p>
+                  </div>
+                  <div class="col-lg-4 pannel">
+                    <p class="innerPannel">News</p>
+                    <p class="pannelContent"></p>
+                  </div>
                 </form>
             </div>
         </div>
