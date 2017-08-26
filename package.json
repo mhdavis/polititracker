@@ -20,7 +20,6 @@
     "handlebars-helper-css": "^0.1.0"
   },
   "dependencies": {
-    "bcrypt-node": "^0.1.0",
     "body-parser": "^1.17.2",
     "civic-info": "0.0.5",
     "dotenv": "^4.0.0",

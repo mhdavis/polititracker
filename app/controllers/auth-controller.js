@@ -1,12 +1,21 @@
-const express = require('express');
-const router = express.Router();
+let exportsObj = {};
 
-router.get('/', function (req, res) {
-  res.render('signin');
-});
+exportsObj.signup = function(req, res) {
+	res.render('signup');
+}
 
-router.get('/signup', function (req, res) {
-  res.render('signup');
-});
+exportsObj.signin = function(req, res) {
+	res.render('signin');
+}
 
-module.exports = router;
+exportsObj.profile = function(req, res) {
+	res.render('profile');
+}
+
+exportsObj.logout = function(req, res) {
+  req.session.destroy(function (err) {
+  res.redirect('/');
+  });
+}
+
+module.exports = exportsObj;

@@ -39,12 +39,17 @@ app.use(express.static('app/public'));
 
 // Set Handlebars
 // =============================================================
+app.set('views', './app/views');
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Set Routes
 // =============================================================
-const authRoutes = require("./app/routes/auth.js")(app, passport);
+let authRoutes = require("./app/routes/auth.js")(app, passport);
+
+// Passport Strategies
+// =============================================================
+require('./app/config/passport/passport.js')(passport, db.User);
 
 // Sync Sequelize Models then Start Server
 // =============================================================
