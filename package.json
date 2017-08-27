@@ -16,9 +16,7 @@
     "url": "https://github.com/mhdavis/localrace/issues"
   },
   "homepage": "https://github.com/mhdavis/localrace#readme",
-  "devDependencies": {
-    "handlebars-helper-css": "^0.1.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",

@@ -1,15 +1,78 @@
-<div class="container">
+<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+
+<style>
+
+body {
+  color: white;
+  background-color: #2B428E;
+  font-family: 'Lato', sans-serif;
+}
+
+.signin-container {
+  margin-top: 7rem;
+}
+
+#signin-title {
+  font-family: 'Pacifico', cursive;
+}
+
+.signin-red { color: #AB2027 }
+.signin-white { color: #FFFFFF }
+.signin-blue { color: #2B428E }
+
+.signin-label {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+.signin-input {
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-color: #FFFFFF;
+  background-color: #2B428E;
+}
+
+.signin-input::placeholder {
+  color: #FFFFFF;
+}
+
+.signin-btn {
+  margin: 10px 0px;
+  color: #FFFFFF;
+  background-color: #2B428E;
+  border: 1px solid #FFFFFF;
+  border-radius: 0px;
+  transition: 0.5s;
+}
+.signin-btn:hover {
+  background-color: #AB2027;
+}
+
+.signin-link {
+  color: #FFFFFF;
+  transition: 0.2s;
+}
+.signin-link:hover, .signin-link:active {
+  color: #AB2027;
+}
+
+</style>
+
+<div class="container signin-container">
+
   <div class="mx-auto col-6 text-center">
-    <h1>Polititracker</h1>
+    <h1 id="signin-title">
+      <span class="signin-red">Politi</span><span class="signin-white">tracker</span>
+    </h1>
     <p>Making Democracy Accessible</p>
     <form id="signin" name="signin" method="post" action="signin">
-      <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
-      <input class="text" name="email" type="text" placeholder="email"/><br>
-      <label for="password"><i class="fa fa-key" aria-hidden="true"></i></label>
-      <input name="password" type="password" placeholder="password"/><br>
-      <input class="btn" type="submit" value="Sign In" /><br>
+      <label class="signin-label" for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+      <input class="signin-input" name="email" type="text" placeholder=" email"/><br>
+      <label class="signin-label" for="password"><i class="fa fa-key" aria-hidden="true"></i></label>
+      <input class="signin-input" name="password" type="password" placeholder=" password"/><br>
+      <input class="btn signin-btn" type="submit" value="Sign In" /><br>
     </form>
-    <a href="/signup">New? Create an account</a>
+    <a class="signin-link" href="/signup">New? Create an account</a>
   </div>
 
 </div>
