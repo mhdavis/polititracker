@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Localrace</title>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <!-- Bootstrap 4.0 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:300" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/profile.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav class="profile-navbar navbar navbar-expand-md sticky-top">
+      <!-- navbar brand -->
+      <a class="navbar-brand" href="#">
+        <h3 id="profile-title">
+          <span class="profile-red">Politi</span><span class="profile-white">tracker</span>
+        </h3>
+      </a>
+      <!-- navbar toggler button -->
+      <button class="profile-toggler navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="profile-bars-icon fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <!-- navbar collapsable items -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav ml-auto mt-2 mt-md-0">
+          <li class="nav-item">
+            <h5><a class="nav-link profile-link" href="#">Address</a></h5>
+          </li>
+          <li class="nav-item">
+            <h5><a class="nav-link profile-link" href="#">Log Out</a></h5>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="profile-jumbo">
+        <div class="col-7">
+          <h2>Welcome, {{NAME HERE}}!</h2>
+        </div>
+        <div class="col-5">
+          <p>Your Information</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Races display -->
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <div class="profile-col">
+          <!-- <h1>YOUR RACES</h1> -->
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+
+      <!-- Candidates Display  -->
+      <div class="col-lg-6 col-md-4">
+        <div class="profile-col">
+          <!-- <h1>YOUR ELECTIONS</h1> -->
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+
+
+      <!-- Representatives Display -->
+      <div class="col-lg-3 col-md-4">
+        <div class="profile-col">
+          <h1>YOUR REPRESENTATIVES:</h1>
+          <span>{{DISPLAY STATE HERE WITH HANDLEBARS}}</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap 4.0 Js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+  <!-- Js -->
+  <script type="text/javascript" src="assets/js/profile.js"></script>
+ </body>
+</body>
+
+</html>

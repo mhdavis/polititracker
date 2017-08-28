@@ -1,0 +1,90 @@
+/*
+my blue = #2B428E
+their blue = #173673
+dark blue = #10244b
+their bright red = #FF1A1A
+their dark red = #E60000
+my red = #AB2027
+*/
+
+body {
+  color: #FFFFFF;
+  background-color: #10244b;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.edit-border {
+  border: 1px solid yellow;
+}
+
+.profile-container {
+  margin-top: 7rem;
+}
+
+#profile-title {
+  font-family: 'Pacifico', cursive;
+}
+
+.profile-red {
+  color: #E60000
+}
+
+.profile-white {
+  color: #FFFFFF
+}
+
+.profile-blue {
+  color: #173673
+}
+
+.profile-navbar {
+  background-color: #173673;
+}
+
+.profile-jumbo {
+  margin-top: 1em;
+  background-color: #173673;
+}
+.profile-col {
+  margin: 0em 0.5em;
+  background-color: #173673;
+}
+
+.profile-label {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+.profile-input {
+  color: #173673;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  border-color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.profile-input::placeholder {
+  color: #173673;
+}
+
+.profile-toggler {
+  background-color #173673;
+  border-color: #FFFFFF;
+}
+.profile-bars-icon {
+  color: #FFFFFF;
+}
+
+.profile-btn:hover {
+  background-color: #E60000;
+}
+
+.profile-link {
+  color: #FFFFFF;
+  transition: 0.2s;
+}
+
+.profile-link:hover,
+.profile-link:active {
+  color: #E60000;
+}
