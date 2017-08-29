@@ -107,6 +107,32 @@ td, th {
   color: #E60000;
 }
 
+/* PROFILE REPRESENTATIVES */
+.profile-rep-card {
+  background-color: #0b1832;
+}
+
+.profile-reps-social {
+  margin: 0.2em;
+  transition: 0.2s;
+}
+
+.profile-reps-web:hover {
+  color: #DBBB06;
+}
+
+.profile-reps-fb:hover {
+  color: #3a5998;
+}
+
+.profile-reps-tw:hover {
+  color: #1da1f2;
+}
+
+.profile-reps-yt:hover {
+  color: #cd201f;
+}
+
 /* RANDOM */
 .profile-label {
   margin-right: 0.5em;
