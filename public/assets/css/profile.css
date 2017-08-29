@@ -1,0 +1,199 @@
+/*
+my blue = #2B428E
+their blue = #173673
+dark blue = #10244b
+their bright red = #FF1A1A
+their dark red = #E60000
+my red = #AB2027
+*/
+
+body {
+  color: #FFFFFF;
+  background-color: #10244b;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.profile-container {
+  margin-top: 7rem;
+}
+
+#profile-title {
+  font-family: 'Pacifico', cursive;
+}
+
+.profile-red {
+  color: #E60000;
+}
+
+.profile-white {
+  color: #FFFFFF
+}
+
+.profile-blue {
+  color: #173673
+}
+
+/* PROFILE NAVBAR */
+
+.profile-navbar {
+  background-color: #173673;
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.profile-toggler {
+  background-color #173673;
+  border-color: #FFFFFF;
+}
+.profile-bars-icon {
+  color: #FFFFFF;
+}
+
+/* PROFILE JUMBOTRON*/
+
+.profile-jumbo {
+  background-color: #173673;
+  margin: 1em 0em;
+}
+
+.profile-panel {
+  margin: 1em;
+  background-color: #173673;
+}
+
+.profile-panel-head {
+  padding: 1em 1em 0.1em 1em;
+  background-color: #0b1832;
+}
+
+.profile-panel-body {
+  padding: 1em;
+}
+
+.profile-jumbo-banner {
+  padding: 1em;
+}
+
+.profile-jumbo-info {
+  background-color: #0b1832;
+  padding: 1em;
+}
+
+/*PROFILE ELECTION CAROUSEL*/
+
+
+/*PROFILE ELECTION TABLES*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+  background-color: #0b1832;
+}
+
+td, th {
+    border: 1px solid #FFFFFF;
+    text-align: left;
+    padding: 8px;
+}
+
+.profile-election-table {
+  margin: 1em 0;
+}
+
+.profile-election-header {
+  padding: 1em 1em 0.1em 1em;
+  background-color: #0b1832;
+  border: solid #FFFFFF;
+  border-width: 1px 1px 0px 1px;
+}
+
+.profile-election-date {
+  color: #E60000;
+}
+
+/* PROFILE REPRESENTATIVES */
+
+.profile-rep-card {
+  width: 15rem;
+  background-color: #0b1832;
+}
+
+.profile-reps-social {
+  margin: 0.2em;
+  transition: 0.2s;
+}
+
+.profile-reps-web:hover {
+  color: #DBBB06;
+}
+
+.profile-reps-fb:hover {
+  color: #3a5998;
+}
+
+.profile-reps-tw:hover {
+  color: #1da1f2;
+}
+
+.profile-reps-yt:hover {
+  color: #cd201f;
+}
+
+/* ADDRESS MODAL */
+.profile-modal-head {
+  background-color: #0b1832;
+}
+
+.profile-modal-content {
+  background-color: #173673;
+}
+
+.address-modal-close-icon {
+  color: #FFFFFF;
+}
+
+/* RANDOM */
+.profile-label {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+.profile-input {
+  width: 100%;
+  color: #173673;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  border-color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.profile-input::placeholder {
+  color: #173673;
+}
+
+.profile-btn {
+  color: #FFFFFF;
+  background-color: #173673;
+  border: 1px solid #FFFFFF;
+  border-radius: 0px;
+  transition: 0.5s;
+}
+
+.profile-update-address-btn:hover {
+  background-color: #DBBB06;
+}
+
+.profile-update-close-btn:hover {
+  background-color: #E60000;
+}
+
+.profile-link {
+  color: #FFFFFF;
+  transition: 0.2s;
+}
+
+.profile-link:hover,
+.profile-link:active {
+  color: #E60000;
+}

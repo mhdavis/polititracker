@@ -1,81 +1,99 @@
-<div class="container">
-  <h1>Sign Up</h1>
+<link rel="stylesheet" href="assets/css/signup.css">
 
-  <form id="signup" name="signup" method="post" action="/signup">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <label for="firstname">First Name</label>
-    <input name="firstname" type="text" />
-    <label for="lastname">Last Name</label>
-    <input name="lastname" type="text" />
-    <br>
+<div class="container signup-container">
 
-    <h3>Address:</h3>
-    <label for="street">Street Address</label>
-    <input name="street" type="text" placeholder="1234 Sesame St."/>
-    <label for="city" type="text">City</label>
-    <input name="city" type="text" placeholder="Kansas City"/>
-    <label for="state" type="text">State</label>
-    <select name="state" type="text" placeholder="Kansas">
-    	<option value="AL">Alabama</option>
-    	<option value="AK">Alaska</option>
-    	<option value="AZ">Arizona</option>
-    	<option value="AR">Arkansas</option>
-    	<option value="CA">California</option>
-    	<option value="CO">Colorado</option>
-    	<option value="CT">Connecticut</option>
-    	<option value="DE">Delaware</option>
-    	<option value="DC">District Of Columbia</option>
-    	<option value="FL">Florida</option>
-    	<option value="GA">Georgia</option>
-    	<option value="HI">Hawaii</option>
-    	<option value="ID">Idaho</option>
-    	<option value="IL">Illinois</option>
-    	<option value="IN">Indiana</option>
-    	<option value="IA">Iowa</option>
-    	<option value="KS">Kansas</option>
-    	<option value="KY">Kentucky</option>
-    	<option value="LA">Louisiana</option>
-    	<option value="ME">Maine</option>
-    	<option value="MD">Maryland</option>
-    	<option value="MA">Massachusetts</option>
-    	<option value="MI">Michigan</option>
-    	<option value="MN">Minnesota</option>
-    	<option value="MS">Mississippi</option>
-    	<option value="MO">Missouri</option>
-    	<option value="MT">Montana</option>
-    	<option value="NE">Nebraska</option>
-    	<option value="NV">Nevada</option>
-    	<option value="NH">New Hampshire</option>
-    	<option value="NJ">New Jersey</option>
-    	<option value="NM">New Mexico</option>
-    	<option value="NY">New York</option>
-    	<option value="NC">North Carolina</option>
-    	<option value="ND">North Dakota</option>
-    	<option value="OH">Ohio</option>
-    	<option value="OK">Oklahoma</option>
-    	<option value="OR">Oregon</option>
-    	<option value="PA">Pennsylvania</option>
-    	<option value="RI">Rhode Island</option>
-    	<option value="SC">South Carolina</option>
-    	<option value="SD">South Dakota</option>
-    	<option value="TN">Tennessee</option>
-    	<option value="TX">Texas</option>
-    	<option value="UT">Utah</option>
-    	<option value="VT">Vermont</option>
-    	<option value="VA">Virginia</option>
-    	<option value="WA">Washington</option>
-    	<option value="WV">West Virginia</option>
-    	<option value="WI">Wisconsin</option>
-    	<option value="WY">Wyoming</option>
-    </select>
-    </select>
-    <label for="zipcode">Zipcode</label>
-    <input name="zipcode" type="number" />
+  <div class="col-6 mx-auto">
 
-    <br>
-    <input class="btn" type="submit" value="Sign Up" />
-  </form>
+    <div class="signup-header text-center">
+      <h1 class="signup-title">
+        <a href="/"><span class="signup-red">Politi</span><span class="signup-white">tracker</span>
+      </a></h1>
+      <h4 class="signup-title">Sign Up</h4>
+    </div>
+
+    <form id="signup" name="signup" method="post" action="/signup">
+      <div class="signup-information-block">
+        <h4 class="signup-title">Information</h4>
+        <label for="email">Email Address</label><br>
+        <input class="text signup-input" name="email" type="email" /><br>
+        <label for="password">Password</label><br>
+        <input class="signup-input" name="password" type="password" /><br>
+        <label for="firstname">First Name</label><br>
+        <input class="signup-input" name="firstname" type="text" /><br>
+        <label for="lastname">Last Name</label><br>
+        <input class="signup-input" name="lastname" type="text" /><br>
+      </div>
+
+      <div class="signup-address-block">
+        <h4 class="signup-title">Address</h4>
+        <label for="street">Street Address</label><br>
+        <input class="signup-input" name="street" type="text" placeholder="1234 Sesame St." /><br>
+        <label for="city" type="text">City</label><br>
+        <input class="signup-input" name="city" type="text" placeholder="Montgomery" /><br>
+        <label for="state" type="text">State</label><br>
+        <select class="signup-input" name="state" type="text"><br>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select><br>
+
+        <label for="zipcode">Zipcode</label><br>
+        <input class="signup-input" name="zipcode" type="number" placeholder="33176" /><br>
+      </div>
+
+      <div class="text-center">
+        <input class="btn signup-btn" type="submit" value="Sign Up" />
+        <input id="signup-clear-btn" class="btn signup-btn" type="reset" value="Clear All" />
+      </div>
+
+    </form>
+  </div>
 </div>

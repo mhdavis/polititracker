@@ -35,12 +35,16 @@ app.use(passport.session()); // persistent login sessions
 
 // Static HTML Pages
 // =============================================================
-app.use(express.static('app/public'));
+app.use(express.static('public'));
 
 // Set Handlebars
 // =============================================================
+app.engine("handlebars", exphbs(
+  { defaultLayout: "main",
+    layoutsDir: "./app/views/layouts"
+  })
+);
 app.set('views', './app/views');
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Set Routes

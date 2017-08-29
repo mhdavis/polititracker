@@ -1,11 +1,20 @@
-<div class="container">
-  <form id="signin" name="signin" method="post" action="signin">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Sign In" />
-  </form>
+<link rel="stylesheet" href="assets/css/signin.css">
 
-  <a href="/signup">New? Create an account</a>
+<div class="container signin-container">
+
+  <div class="mx-auto col-6 text-center">
+    <h1 id="signin-title">
+      <span class="signin-red">Politi</span><span class="signin-white">tracker</span>
+    </h1>
+    <p>Making Democracy Accessible</p>
+    <form id="signin" name="signin" method="post" action="signin">
+      <label class="signin-label" for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+      <input class="signin-input" name="email" type="text" placeholder=" email"/><br>
+      <label class="signin-label" for="password"><i class="fa fa-key" aria-hidden="true"></i></label>
+      <input class="signin-input" name="password" type="password" placeholder=" password"/><br>
+      <input class="btn signin-btn" type="submit" value="Sign In" /><br>
+    </form>
+    <a class="signin-link" href="/signup">New? Create an account</a>
+  </div>
+
 </div>
