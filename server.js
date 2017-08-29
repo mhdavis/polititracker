@@ -35,7 +35,7 @@ app.use(passport.session()); // persistent login sessions
 
 // Static HTML Pages
 // =============================================================
-app.use(express.static('app/public'));
+app.use(express.static('public'));
 
 // Set Handlebars
 // =============================================================
