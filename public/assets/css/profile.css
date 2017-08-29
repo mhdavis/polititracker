@@ -39,15 +39,28 @@ body {
 
 .profile-navbar {
   background-color: #173673;
+  border-bottom: 2px solid #FFFFFF;
 }
 
 .profile-jumbo {
-  margin-top: 1em;
   background-color: #173673;
+  margin: 1em 0em;
 }
-.profile-col {
-  margin: 0em 0.5em;
+
+.profile-panel {
+  padding: 1em;
+  margin: 1em;
   background-color: #173673;
+
+}
+
+.profile-jumbo-banner {
+  padding: 1em;
+}
+
+.profile-jumbo-info {
+  background-color: #0b1832;
+  padding: 1em;
 }
 
 .profile-label {
