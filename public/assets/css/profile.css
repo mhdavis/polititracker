@@ -115,6 +115,7 @@ td, th {
 /* PROFILE REPRESENTATIVES */
 
 .profile-rep-card {
+  width: 15rem;
   background-color: #0b1832;
 }
 
@@ -140,6 +141,9 @@ td, th {
 }
 
 /* ADDRESS MODAL */
+.profile-modal-head {
+  background-color: #0b1832;
+}
 
 .profile-modal-content {
   background-color: #173673;
