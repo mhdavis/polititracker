@@ -13,10 +13,6 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-.edit-border {
-  border: 1px solid yellow;
-}
-
 .profile-container {
   margin-top: 7rem;
 }
@@ -26,7 +22,7 @@ body {
 }
 
 .profile-red {
-  color: #E60000
+  color: #E60000;
 }
 
 .profile-white {
@@ -37,10 +33,22 @@ body {
   color: #173673
 }
 
+/* PROFILE NAVBAR */
+
 .profile-navbar {
   background-color: #173673;
   border-bottom: 2px solid #FFFFFF;
 }
+
+.profile-toggler {
+  background-color #173673;
+  border-color: #FFFFFF;
+}
+.profile-bars-icon {
+  color: #FFFFFF;
+}
+
+/* PROFILE JUMBOTRON*/
 
 .profile-jumbo {
   background-color: #173673;
@@ -63,6 +71,43 @@ body {
   padding: 1em;
 }
 
+/*PROFILE ELECTION CAROUSEL*/
+.profile-cao-indicators {
+  margin-top: 0.5em;
+}
+
+
+/*PROFILE ELECTION TABLES*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+  background-color: #0b1832;
+}
+
+td, th {
+    border: 1px solid #FFFFFF;
+    text-align: left;
+    padding: 8px;
+}
+
+.profile-election-table {
+  margin: 1em 0;
+}
+
+.profile-election-header {
+  padding: 1em 1em 0.1em 1em;
+  background-color: #0b1832;
+  border: solid #FFFFFF;
+  border-width: 1px 1px 0px 1px;
+}
+
+.profile-election-date {
+  color: #E60000;
+}
+
+/* RANDOM */
 .profile-label {
   margin-right: 0.5em;
   margin-left: 0.5em;
@@ -78,14 +123,6 @@ body {
 
 .profile-input::placeholder {
   color: #173673;
-}
-
-.profile-toggler {
-  background-color #173673;
-  border-color: #FFFFFF;
-}
-.profile-bars-icon {
-  color: #FFFFFF;
 }
 
 .profile-btn:hover {
