@@ -56,10 +56,17 @@ body {
 }
 
 .profile-panel {
-  padding: 1em;
   margin: 1em;
   background-color: #173673;
+}
 
+.profile-panel-head {
+  padding: 1em 1em 0.1em 1em;
+  background-color: #0b1832;
+}
+
+.profile-panel-body {
+  padding: 1em;
 }
 
 .profile-jumbo-banner {
@@ -72,12 +79,10 @@ body {
 }
 
 /*PROFILE ELECTION CAROUSEL*/
-.profile-cao-indicators {
-  margin-top: 0.5em;
-}
 
 
 /*PROFILE ELECTION TABLES*/
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -108,6 +113,7 @@ td, th {
 }
 
 /* PROFILE REPRESENTATIVES */
+
 .profile-rep-card {
   background-color: #0b1832;
 }
@@ -134,6 +140,7 @@ td, th {
 }
 
 /* ADDRESS MODAL */
+
 .profile-modal-content {
   background-color: #173673;
 }
