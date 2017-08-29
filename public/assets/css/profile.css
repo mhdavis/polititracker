@@ -133,6 +133,15 @@ td, th {
   color: #cd201f;
 }
 
+/* ADDRESS MODAL */
+.profile-modal-content {
+  background-color: #173673;
+}
+
+.address-modal-close-icon {
+  color: #FFFFFF;
+}
+
 /* RANDOM */
 .profile-label {
   margin-right: 0.5em;
@@ -140,6 +149,7 @@ td, th {
 }
 
 .profile-input {
+  width: 100%;
   color: #173673;
   border: 1px solid #FFFFFF;
   border-radius: 5px;
@@ -151,7 +161,19 @@ td, th {
   color: #173673;
 }
 
-.profile-btn:hover {
+.profile-btn {
+  color: #FFFFFF;
+  background-color: #173673;
+  border: 1px solid #FFFFFF;
+  border-radius: 0px;
+  transition: 0.5s;
+}
+
+.profile-update-address-btn:hover {
+  background-color: #DBBB06;
+}
+
+.profile-update-close-btn:hover {
   background-color: #E60000;
 }
 
