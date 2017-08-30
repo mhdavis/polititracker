@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mhdavis/localrace#readme",
   "devDependencies": {},
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "civic-info": "0.0.5",
