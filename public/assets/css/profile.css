@@ -1,4 +1,7 @@
 /*
+COLOR PALETTE
+------------------------------------------------------------
+
 my blue = #2B428E
 their blue = #173673
 dark blue = #10244b
@@ -6,6 +9,9 @@ their bright red = #FF1A1A
 their dark red = #E60000
 my red = #AB2027
 */
+
+/* OVERALL
+------------------------------------------------------------ */
 
 body {
   color: #FFFFFF;
@@ -33,7 +39,18 @@ body {
   color: #173673
 }
 
-/* PROFILE NAVBAR */
+.profile-link {
+  color: #FFFFFF;
+  transition: 0.2s;
+}
+
+.profile-link:hover,
+.profile-link:active {
+  color: #E60000;
+}
+
+/* PROFILE NAVBAR
+------------------------------------------------------------ */
 
 .profile-navbar {
   background-color: #173673;
@@ -48,14 +65,36 @@ body {
   color: #FFFFFF;
 }
 
-/* PROFILE JUMBOTRON*/
+/* PROFILE JUMBOTRON
+------------------------------------------------------------ */
 
 .profile-jumbo {
   background-color: #173673;
   margin: 1em 0em;
 }
 
-/* PROFILE PANELS */
+.profile-jumbo-banner {
+  height: 8em;
+  position: relative;
+  padding: 1em;
+}
+
+div.profile-jumbo-banner h2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+
+}
+
+.profile-jumbo-info {
+  background-color: #0b1832;
+  padding: 1em;
+}
+
+
+/* PROFILE PANELS
+------------------------------------------------------------ */
 
 .profile-panel {
   margin: 1em;
@@ -71,15 +110,6 @@ body {
   padding: 1em;
 }
 
-.profile-jumbo-banner {
-  padding: 1em;
-}
-
-.profile-jumbo-info {
-  background-color: #0b1832;
-  padding: 1em;
-}
-
 #profile-elections-head {
   margin: 0;
 }
@@ -89,7 +119,8 @@ body {
   padding-right: 0;
 }
 
-/*PROFILE ELECTION CAROUSEL*/
+/* PROFILE ELECTION CAROUSEL
+------------------------------------------------------------ */
 
 .profile-upcoming-elects {
   border-radius: 30px;
@@ -110,7 +141,8 @@ body {
    bottom :0px;
 }
 
-/*PROFILE ELECTION TABLES*/
+/*PROFILE ELECTION TABLES
+------------------------------------------------------------ */
 
 table {
     border-collapse: collapse;
@@ -145,7 +177,8 @@ td, th {
   color: #E60000;
 }
 
-/* PROFILE REPRESENTATIVES */
+/* PROFILE REPRESENTATIVES
+------------------------------------------------------------ */
 
 .profile-rep-card {
   width: 15rem;
@@ -175,7 +208,9 @@ td, th {
   color: #cd201f;
 }
 
-/* ADDRESS MODAL */
+/* ADDRESS MODAL
+------------------------------------------------------------ */
+
 .profile-modal-head {
   background-color: #0b1832;
 }
@@ -188,7 +223,9 @@ td, th {
   color: #FFFFFF;
 }
 
-/* RANDOM */
+/* RANDOM
+------------------------------------------------------------ */
+
 .profile-label {
   margin-right: 0.5em;
   margin-left: 0.5em;
@@ -221,14 +258,4 @@ td, th {
 
 .profile-update-close-btn:hover {
   background-color: #E60000;
-}
-
-.profile-link {
-  color: #FFFFFF;
-  transition: 0.2s;
-}
-
-.profile-link:hover,
-.profile-link:active {
-  color: #E60000;
 }
