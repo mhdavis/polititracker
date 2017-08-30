@@ -79,7 +79,16 @@ body {
 }
 
 /*PROFILE ELECTION CAROUSEL*/
+.carousel-controls {
+ position:relative;
+  width:300px;
+  margin:0 auto;
+}
 
+.carousel-indicators {
+  margin-bottom: 0px;
+   bottom :0px;
+}
 
 /*PROFILE ELECTION TABLES*/
 
@@ -93,12 +102,12 @@ th {
 
 td, th {
     border: 1px solid #FFFFFF;
-    text-align: left;
-    padding: 8px;
+    text-align: center;
+    padding: 8px 1.5px;
 }
 
 .profile-election-table {
-  margin: 1em 0;
+  padding: 0 2em 1em 2em;
 }
 
 .profile-election-header {
@@ -106,6 +115,10 @@ td, th {
   background-color: #0b1832;
   border: solid #FFFFFF;
   border-width: 1px 1px 0px 1px;
+}
+
+.profile-election-arrow {
+  width: 20px;
 }
 
 .profile-election-date {
@@ -117,6 +130,8 @@ td, th {
 .profile-rep-card {
   width: 15rem;
   background-color: #0b1832;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .profile-reps-social {

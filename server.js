@@ -52,7 +52,7 @@ app.set("view engine", "handlebars");
 // auth routes
 require("./app/routes/auth.js")(app, passport);
 // api routes
-require("./app/routes/api-routes")(app);
+// require("./app/routes/api-routes")(app);
 
 // Passport Strategies
 // =============================================================
