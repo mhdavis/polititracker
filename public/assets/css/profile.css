@@ -55,6 +55,8 @@ body {
   margin: 1em 0em;
 }
 
+/* PROFILE PANELS */
+
 .profile-panel {
   margin: 1em;
   background-color: #173673;
@@ -78,7 +80,25 @@ body {
   padding: 1em;
 }
 
+#profile-elections-head {
+  margin: 0;
+}
+
+.profile-elections-col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /*PROFILE ELECTION CAROUSEL*/
+
+.profile-upcoming-elects {
+  border-radius: 30px;
+  color: #FFFFFF;
+  background-color: #173673;
+  float: right;
+  padding: 5px 20px;
+}
+
 .carousel-controls {
  position:relative;
   width:300px;

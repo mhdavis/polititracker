@@ -27,7 +27,7 @@
     </div>
   </nav>
 
-  <!-- profile jumbo -->
+  <!-- Profile Jumbo -->
   <div class="profile-jumbo">
     <div class="row">
       <div class="col-lg-8">
@@ -66,16 +66,21 @@
     <!-- Elections Display  -->
     <div class="col-lg-8">
       <div class="profile-panel">
-        <div class="profile-panel-head">
-          <h2><span class="profile-red">Your</span> Elections</h2>
+        <div id="profile-elections-head" class="profile-panel-head row">
+          <div class="profile-elections-col col-lg-7 col-md-6">
+            <h2 "profile-head-title"><span class="profile-red">Your</span> Elections</h2>
+          </div>
+          <div class="profile-elections-col col-lg-5 col-md-6">
+            <h6 class="profile-upcoming-elects">2 Upcoming Elections</h6>
+          </div>
         </div>
 
         <div class="profile-panel-body">
 
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div id="profileCarouselIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#profileCarouselIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#profileCarouselIndicators" data-slide-to="1"></li>
             </ol>
 
             <div class="carousel-inner" role="listbox">
@@ -156,12 +161,12 @@
 
             </div>
 
-            <a class="carousel-control-prev profile-election-arrow" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev profile-election-arrow" href="#profileCarouselIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
 
-            <a class="carousel-control-next profile-election-arrow" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next profile-election-arrow" href="#profileCarouselIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
