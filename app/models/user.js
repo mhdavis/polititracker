@@ -33,13 +33,24 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
 
-        address: {
+        state: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          validate: {
+            len: [1]
+          }
+        },
+
+        full_address: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [1]
             }
         }
+
+
     });
+
     return User
 };
