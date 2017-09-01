@@ -141,7 +141,22 @@ div.profile-jumbo-banner h2 {
    bottom :0px;
 }
 
-/*PROFILE ELECTION TABLES
+/* PROFILE ELECTION
+------------------------------------------------------------ */
+.profile-election-header {
+  background-color: #0b1832;
+  border: 1px solid #FFFFFF;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.profile-election-date {
+  color: #E60000;
+  margin: 0;
+}
+
+/*PROFILE CONTEST
 ------------------------------------------------------------ */
 
 table {
@@ -158,24 +173,72 @@ td, th {
     padding: 8px 1.5px;
 }
 
-.profile-election-table {
-  padding: 0 2em 1em 2em;
+.profile-contest-entry {
+  margin: 1em 2em;
 }
 
-.profile-election-header {
+.profile-contest-header {
   padding: 1em 1em 0.1em 1em;
   background-color: #0b1832;
   border: solid #FFFFFF;
   border-width: 1px 1px 0px 1px;
 }
 
+.profile-contests-list {
+  margin: 1em 2em;
+}
+
+.profile-contest-entry {
+  margin: 1em 0;
+}
+
 .profile-election-arrow {
   width: 20px;
 }
 
-.profile-election-date {
+.profile-cand-url > a {
+  color: #FFFFFF;
+  transition: 0.2s;
+}
+
+.profile-cand-url > a:hover {
   color: #E60000;
 }
+
+/* PROFILE POLLING INFORMATION
+------------------------------------------------------------ */
+
+.profile-polling-info {
+  margin: 1em 2em;
+}
+
+.profile-polling-header {
+  padding: 1em 1em 0.1em 1em;
+  background-color: #0b1832;
+  border: solid 1px #FFFFFF;
+}
+
+.profile-polling-body {
+  margin: 0;
+  padding: 0.5em 1em;
+  border: solid #FFFFFF;
+  border-width: 0px 1px 1px 1px;
+}
+
+.profile-polling-body > .col-7 > p {
+  margin: 0;
+}
+
+.profile-polling-body > .col-5 > p {
+  margin: 0;
+}
+
+.profile-polling-highlight {
+  /*color: #0b1832;*/
+  color: #E60000;
+  font-weight: bold;
+}
+
 
 /* PROFILE REPRESENTATIVES
 ------------------------------------------------------------ */
@@ -196,15 +259,25 @@ td, th {
   color: #DBBB06;
 }
 
-.profile-reps-fb:hover {
+/* PROFILE SOCIAL MEDIA
+------------------------------------------------------------ */
+.profile-cand-social > a {
+  margin: 0.1em
+}
+
+.profile-social {
+  color: #FFFFFF;
+}
+
+.profile-social-fb:hover {
   color: #3a5998;
 }
 
-.profile-reps-tw:hover {
+.profile-social-tw:hover {
   color: #1da1f2;
 }
 
-.profile-reps-yt:hover {
+.profile-social-yt:hover {
   color: #cd201f;
 }
 
