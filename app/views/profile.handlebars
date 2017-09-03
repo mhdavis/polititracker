@@ -27,7 +27,6 @@
       </ul>
     </div>
   </nav>
-
   <!-- Profile Jumbo -->
   <div class="profile-jumbo">
     <div class="row">
@@ -72,7 +71,7 @@
             <h2 "profile-head-title"><span class="profile-red">Your</span> Elections</h2>
           </div>
           <div class="profile-elections-col col-lg-5 col-md-6">
-            <h6 class="profile-upcoming-elects">{{"polititracker_elections.length"}} Upcoming Elections</h6>
+            <h6 class="profile-upcoming-elects">Upcoming Elections: </h6>
           </div>
         </div>
 
@@ -87,7 +86,7 @@
             <div class="carousel-inner" role="listbox">
 
               <div class="carousel-item active">
-   <!-- -->
+ 
                 <div class="profile-election-header">
                   <h3 class="profile-election-title">General Election{{"election.name"}}</h3>
                   <h4 class="profile-election-date">2/2/2018{{"election.electionDay"}}</h4>
@@ -161,13 +160,18 @@
                   <div class="profile-polling-body row">
                     <div class="col-7">
                       <p>
-                        <span class="profile-polling-highlight">West Springfield Highschool{{"pollingLocations[0].address.locationName"}}</span><br> 123 Spring St.{{"pollingLocations[0].address.line1"}}<br> Chapel Hill, NC 34567<span>{{"pollinglocations[0].city"}}, {{"pollingLocations[0].state"}} {{"pollingLocations[0].zip"}}</span>
+                        <span id="polling-location" class="profile-polling-highlight-"></span>
+                        <br> 
+                        <div id="polling-address"></div>
+                        
                       </p>
                     </div>
 
                     <div class="col-5">
                       <p>
-                        <span class="profile-polling-highlight">Polling Hours</span><br> 7:00AM - 7:00PM{{"pollingLocations[0].pollingHours"}}
+                        <span class="profile-polling-highlight">Polling Hours</span>
+                        <br>
+                        <div id="polling-hours"></div>
                       </p>
                     </div>
 
@@ -202,65 +206,11 @@
       <div class="profile-panel">
         <div class="profile-panel-head">
           <h2><span class="profile-red">Your</span> Representatives</h2>
-          <button id='click'>click</button>
         </div>
-
         <div class="profile-panel-body">
           <div class="card-deck">
-
-            <!-- Example Card 1 -->
-            <div class="profile-rep-card card">
-              <img class="card-img-top" src="img/person-icon.png" alt="Card image cap">
-              <div class="card-block text-center">
-                <h4 class="card-title">John B. Good</h4>
-                <p class="card-text">
-                  <span>Democrat</span>
-                </p>
-              </div>
-              <div class="card-footer text-center">
-                <i class="profile-reps-social profile-reps-web fa fa-address-book fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x" aria-hidden="true"></i>
-              </div>
-            </div>
-
-            <!-- Example Card 2 -->
-            <div class="profile-rep-card card">
-              <img class="card-img-top" src="img/person-icon.png" alt="Card image cap">
-              <div class="card-block text-center">
-                <h4 class="card-title">John B. Good</h4>
-                <p class="card-text">
-                  <span>Democrat</span>
-                </p>
-              </div>
-              <div class="card-footer text-center">
-                <i class="profile-reps-social profile-reps-web fa fa-address-book fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x" aria-hidden="true"></i>
-              </div>
-            </div>
-
-            <!-- Example Card 3 -->
-            <div class="profile-rep-card card">
-              <img class="card-img-top" src="img/person-icon.png" alt="Card image cap">
-              <div class="card-block text-center">
-                <h4 class="card-title">John B. Good</h4>
-                <p class="card-text">
-                  <span>Democrat</span>
-                </p>
-              </div>
-              <div class="card-footer text-center">
-                <i class="profile-reps-social profile-reps-web fa fa-address-book fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x" aria-hidden="true"></i>
-                <i class="profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x" aria-hidden="true"></i>
-              </div>
-            </div>
-
+          <!-- Profile cards populate here via jQuery -->
           </div>
-
         </div>
       </div>
     </div>
