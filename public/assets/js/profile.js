@@ -99,18 +99,18 @@ let democracy = {
             contentType: "application/json;charset=utf-8"
 
         }).done(function(data) {
-
-            for (let i = 0; i < data.polititracker_elections[0].contests.length; i++) {
+// data.polititracker_elections[0].contests.length
+            for (let i = 0; i < 1; i++) {
                 $(".profile-contest-header").append("<h4><span class='profile-red'>Contest Type: </span>" + data.polititracker_elections[0].contests[i].type + "</h4><h4><span class='profile-red'>Office: </span>" + data.polititracker_elections[0].contests[i].office);
 
                 for (let j = 0; j < data.polititracker_elections[0].contests[i].candidates.length; j++) {
 
-                    $(".profile-cand-name").append(data.polititracker_elections[0].contests[i].candidates[j].name)
+                    $(".profile-cand-name").append(data.polititracker_elections[0].contests[0].candidates[j].name)
 
 
                     // If party exists post the URL, otherwise post N/A
                     if (data.polititracker_elections[0].contests[i].candidates[j].party === true) {
-                        $(".profile-cand-party").append(data.polititracker_elections[0].contests[i].candidates[j].party);
+                        $(".profile-cand-party").append(data.polititracker_elections[0].contests[0].candidates[j].party);
 
                     } else {
                         $(".profile-cand-party").append("N/A")
@@ -120,31 +120,31 @@ let democracy = {
 
                     // If website exists post the URL, otherwise post N/A
                     if (data.polititracker_elections[0].contests[i].candidates[j].candidatesUrl === true) {
-                        $(".profile-cand-url").append("<a href='" + data.polititracker_elections[0].contests[i].candidates[j].candidatesUrl + "'>Website</a>")
+                        $(".profile-cand-url").append("<a href='" + data.polititracker_elections[0].contests[0].candidates[j].candidatesUrl + "'>Website</a>")
 
                     } else {
                         $(".profile-cand-url").append('N/A')
 
                     }
 
-                    for (let k = 0; k < data.polititracker_elections[0].contests[i].candidates[j].channels.length; k++) {
-
-                        if (data.polititracker_elections[0].contests[i].candidates[j].channels.length === undefined) {
+                        if (!data.polititracker_elections[0].contests[0].candidates[j].channels) {
                             $(".profile-cand-social").html("N/A")
 
                         } else {
 
+                    for (let k = 0; k < data.polititracker_elections[0].contests[0].candidates[j].channels.length; k++) {
+
                             switch (data.officials[i].channels[j].candidates[j].channels[k]) {
                                 case "Facebook":
-                                    $('#' + idTwo).append("<a href='http://www.facebook.com/" + data.polititracker_elections[0].contests[i].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
+                                    $('#' + idTwo).append("<a href='http://www.facebook.com/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
                                     break;
 
                                 case "Twitter":
-                                    $('#' + idTwo).append("<a href='http://www.twitter.com/" + data.polititracker_elections[0].contests[i].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
+                                    $('#' + idTwo).append("<a href='http://www.twitter.com/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
                                     break;
 
                                 case "YouTube":
-                                    $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + data.polititracker_elections[0].contests[i].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
+                                    $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
                                     break;
                             }
                         }
