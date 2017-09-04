@@ -134,20 +134,21 @@ let democracy = {
                         if (data.polititracker_elections[0].contests[0].candidates[j].channels.length === undefined) {
                             $(".profile-cand-social").html("N/A")
 
-                        }
+                        } else {
 
-                        switch (data.officials[i].channels[j].candidates[j].channels[k]) {
-                            case "Facebook":
-                                $('#' + idTwo).append("<a href='http://www.facebook.com/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
-                                break;
+                            switch (data.officials[i].channels[j].candidates[j].channels[k]) {
+                                case "Facebook":
+                                    $('#' + idTwo).append("<a href='http://www.facebook.com/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
+                                    break;
 
-                            case "Twitter":
-                                $('#' + idTwo).append("<a href='http://www.twitter.com/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
-                                break;
+                                case "Twitter":
+                                    $('#' + idTwo).append("<a href='http://www.twitter.com/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
+                                    break;
 
-                            case "YouTube":
-                                $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
-                                break;
+                                case "YouTube":
+                                    $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + data.polititracker_elections[0].contests[0].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
+                                    break;
+                            }
                         }
                     }
                 }
