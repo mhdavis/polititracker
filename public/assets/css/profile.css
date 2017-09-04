@@ -240,7 +240,8 @@ td, th {
 }
 
 #polling-location {
-    color: #E60000;
+    /*color: #E60000;*/
+    color: white;
   font-weight: bold;
 
 }
