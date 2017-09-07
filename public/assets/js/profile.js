@@ -2,8 +2,6 @@
 
 let id = 0;
 let id2 = 50;
-let idThree = 100
-let idFour = 150
 
 $(document).ready(function() {
     democracy.getReps();
