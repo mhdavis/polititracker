@@ -7,7 +7,8 @@ let idFour = 150
 
 $(document).ready(function() {
     democracy.getReps();
-    democracy.getElectionInfo();
+    democracy.getPollingInfo();
+    democracy.getNumberOfUpcomingElections();
     democracy.getCandidates();
 });
 
@@ -24,45 +25,65 @@ let democracy = {
 
             for (let i = 2; i < 6; i++) {
 
+                let repPhoto = data.officials[i].photoUrl;
+                let repParty = data.officials[i].party
+                let repName = data.officials[i].name
+                let repWebsite = data.officials[i].urls[0]
+                let socialMedia = data.officials[i].channels
+
                 $(".card-deck").append("<div class='profile-rep-card card' id='" + id + "'></id");
 
-                if (!data.officials[i].photoUrl) {
+
+                // If rep photo does not exist then use a placeholder image
+                if (!repPhoto) {
                     $('#' + id).append("<div class='img-frame'><img class='card-img-top' alt='Card image cap' src='img/person-icon.png' height='250'></div>");
 
                 } else {
-                    $('#' + id).append("<div class='img-frame'><img class='card-img-top' alt='Card image cap' src='" + data.officials[i].photoUrl + "' height='250'></div>");
+                    $('#' + id).append("<div class='img-frame'><img class='card-img-top' alt='Card image cap' src='" + repPhoto + "' height='250'></div>");
                 }
 
-                if (data.officials[i].party === "Democratic") {
-                    $('#' + id).append("<div class='card-block text-center'><h4 class='card-title' style='margin-top: 10px;'>" + data.officials[i].name + "</h4><p>" + data.officials[i].party.substring(0, 8) + "</p>");
+
+                // If rep party is democratic, change the string to democrat
+                if (repParty === "Democratic") {
+                    $('#' + id).append("<div class='card-block text-center'><h4 class='card-title' style='margin-top: 10px;'>" + repName + "</h4><p>" + repParty.substring(0, 8) + "</p>");
 
                 } else {
-                    $('#' + id).append("<div class='card-block text-center'><h4 class='card-title' style='margin-top: 10px;'>" + data.officials[i].name + "</h4><p>" + data.officials[i].party + "</p>");
+                    $('#' + id).append("<div class='card-block text-center'><h4 class='card-title' style='margin-top: 10px;'>" + repName + "</h4><p>" + repParty + "</p>");
                 }
 
-                $('#' + id).append("<div class='card-footer text-center' id='" + idTwo + "'>" + "<a href='" + data.officials[i].urls[0] + "' target='_blank'><i class='profile-reps-social profile-reps-web fa fa-address-book fa-2x' aria-hidden='true'></i></a>")
 
-                if (!data.officials[i].channels) {
-                    $('#' + idTwo).append("Social Media N/A")
+                $('#' + id).append("<div class='card-footer text-center' id='" + idTwo + "'>" + "<a href='" + repWebsite + "' target='_blank'><i class='profile-reps-social profile-reps-web fa fa-address-book fa-2x' aria-hidden='true'></i></a>");
+
+
+                // If rep social media channels exist, list them
+                if (!socialMedia) {
+                    $('#' + idTwo).append("Social Media N/A");
 
                 } else {
-                for (let j = 0; j < data.officials[i].channels.length; j++) {
 
-                    switch (data.officials[i].channels[j].type) {
-                        case "Facebook":
-                            $('#' + idTwo).append("<a href='http://www.facebook.com/" + data.officials[i].channels[j].id + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
-                            break;
+                    for (let j = 0; j < data.officials[i].channels.length; j++) {
 
-                        case "Twitter":
-                            $('#' + idTwo).append("<a href='http://www.twitter.com/" + data.officials[i].channels[j].id + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
-                            break;
+                        let socialChannel = data.officials[i].channels[j].id;
 
-                        case "YouTube":
-                            $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + data.officials[i].channels[j].id + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
-                            break;
+
+                        // Switch statement to correspond the correct icon with the corect channel type
+                        switch (data.officials[i].channels[j].type) {
+
+                            case "Facebook":
+                                $('#' + idTwo).append("<a href='http://www.facebook.com/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
+                                break;
+
+
+                            case "Twitter":
+                                $('#' + idTwo).append("<a href='http://www.twitter.com/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
+                                break;
+
+
+                            case "YouTube":
+                                $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
+                                break;
+                        }
                     }
-                }
-                    
                 }
 
                 idTwo++
@@ -71,8 +92,7 @@ let democracy = {
         })
     },
 
-
-    getElectionInfo: function() {
+    getNumberOfUpcomingElections: function() {
         $.ajax({
             type: 'GET',
             url: "/api/elections",
@@ -80,28 +100,84 @@ let democracy = {
             contentType: "application/json;charset=utf-8"
 
         }).done(function(data) {
-            $(".profile-upcoming-elects").append("<span style='color: red;'>" + " " + data.polititracker_elections.length + "</span>");
 
+            $(".profile-upcoming-elects").append("<span style='color: red;'>" + " " + data.polititracker_elections.length + "</span>");
+        })
+    },
+
+    getPollingInfo: function() {
+        $.ajax({
+            type: 'GET',
+            url: "/api/elections",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8"
+
+        }).done(function(data) {
+            // If 0 upcoming elections, display 'No Upcoming Elections'
             if (data.polititracker_elections.length === 0) {
-                $(".profile-election-title").html("NO UPCOMING ELECTIONS")
+
+                $(".main").html("NO UPCOMING ELECTIONS");
 
             } else {
-                
-            $(".profile-election-title").html(data.polititracker_elections[0].election.name);
 
-            $(".profile-election-date").append(data.polititracker_elections[0].election.electionDay);
+                for (var i = 0; i < data.polititracker_elections.length; i++) {
 
-            $("#polling-location").html(data.polititracker_elections[0].pollingLocations[0].address.locationName);
+                    let pollingLocation = data.polititracker_elections[i].pollingLocations;
+                    let pollingHours = data.polititracker_elections[i].pollingLocations[0].pollingHours;
 
-            $("#polling-address").html(data.polititracker_elections[0].pollingLocations[0].address.line1 + "<br>" + data.polititracker_elections[0].pollingLocations[0].address.city + ", " + data.polititracker_elections[0].pollingLocations[0].address.state + " " + data.polititracker_elections[0].pollingLocations[0].address.zip);
+                    let locationName = data.polititracker_elections[i].pollingLocations[0].address.locationName;
+                    let street = data.polititracker_elections[i].pollingLocations[0].address.line1;
+                    let city = data.polititracker_elections[i].pollingLocations[0].address.city;
+                    let state = data.polititracker_elections[i].pollingLocations[0].address.state;
+                    let zip = data.polititracker_elections[i].pollingLocations[0].address.zip;
 
-            $("#polling-hours").html(data.polititracker_elections[0].pollingLocations[0].pollingHours);
 
-            $("#polling-times").html("Polling Hours:")
+                    // If the polling location exists, list it, otherwise print that it's unavailable
+                    if (pollingLocation) {
+
+                        $("#polling-location").append(locationName);
+
+                        $("#polling-address").append(street
+
+                            + "<br>"
+
+                            + city
+
+                            + ", "
+
+                            + state
+
+                            + " "
+
+                            + zip);
+
+                        $("#polling-hours").append(pollingHours);
+
+                        $("#polling-times").append("Polling Hours:");
+                    }
+                }
             }
         })
     },
 
+
+
+
+
+
+    populateIndicators: function(slide) {
+        let $li = $("<li>")
+            .attr("data-target", "#profileCarouselIndicators")
+            .attr("data-slide-to", slide);
+
+        if (slide === 0) {
+            $li.addClass("active");
+        }
+
+        // .carousel-indicators is the <ol>
+        $(".carousel-indicators").append($li);
+
+    },
 
     getCandidates: function() {
         $.ajax({
@@ -112,55 +188,88 @@ let democracy = {
 
         }).done(function(data) {
 
-// data.polititracker_elections[0].contests.length
-            for (let i = 0; i < 1; i++) {
-                $(".profile-contest-header").append("<h4><span class='profile-red'>Contest Type: </span>" + data.polititracker_elections[0].contests[i].type + "</h4><h4><span class='profile-red'>Office: </span>" + data.polititracker_elections[0].contests[i].office);
+            // Create the header for each race
+            if (data.polititracker_elections.length === 0) {
 
-                for (let j = 0; j < data.polititracker_elections[0].contests[i].candidates.length; j++) {
+                let $electionTitle = $('<h3>').addClass("profile-election-title").append("NO UPCOMING ELECTIONS");
 
-                    $(".profile-cand-name").append(data.polititracker_elections[0].contests[i].candidates[j].name)
+                let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle);
+
+                $(".carousel-item").append($electionHeader);
+
+            } else {
+
+                for (let i = 0; i < data.polititracker_elections.length; i++) {
+
+                    // democracy.populateIndicators(i)
+
+                    let $electionTitle = $('<h3>').addClass("profile-election-title").append(data.polititracker_elections[i].election.name);
+
+                    let $electionDate = $('<h4>').addClass("profile-election-date").append(data.polititracker_elections[i].election.electionDay);
+
+                    let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle).append($electionDate);
 
 
-                    // If party exists post the URL, otherwise post N/A
-                    if (data.polititracker_elections[0].contests[i].candidates[j].party === true) {
-                        $(".profile-cand-party").append(data.polititracker_elections[0].contests[i].candidates[j].party);
-
-                    } else {
-                        $(".profile-cand-party").append("N/A")
-
-                    }
+                    $(".carousel-item").prepend($electionHeader);
+                    //End create header for each race
 
 
-                    // If website exists post the URL, otherwise post N/A
-                    if (data.polititracker_elections[0].contests[i].candidates[j].candidatesUrl === true) {
-                        $(".profile-cand-url").append("<a href='" + data.polititracker_elections[0].contests[i].candidates[j].candidatesUrl + "'>Website</a>")
 
-                    } else {
-                        $(".profile-cand-url").append('N/A')
 
-                    }
+                    // Create contest list for each race
+                    for (var j = 0; j < data.polititracker_elections[0].contests.length; j++) {
 
-                        if (!data.polititracker_elections[0].contests[i].candidates[j].channels) {
-                            $(".profile-cand-social").html("N/A")
+                        let contestTypeName = data.polititracker_elections[0].contests[j].type
 
-                        } else {
+                        let contestOfficeName = data.polititracker_elections[0].contests[j].office
 
-                    for (let k = 0; k < data.polititracker_elections[0].contests[i].candidates[j].channels.length; k++) {
+                        let $spanOffice = $('<span>').addClass('profile-red').append('Office: ')
 
-                            switch (data.officials[i].channels[j].candidates[j].channels[k]) {
-                                case "Facebook":
-                                    $('#' + idTwo).append("<a href='http://www.facebook.com/" + data.polititracker_elections[0].contests[i].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
-                                    break;
+                        let $contestOffice = $('<h4>').append($spanOffice).append(contestOfficeName)
 
-                                case "Twitter":
-                                    $('#' + idTwo).append("<a href='http://www.twitter.com/" + data.polititracker_elections[0].contests[i].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
-                                    break;
+                        let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ')
 
-                                case "YouTube":
-                                    $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + data.polititracker_elections[0].contests[i].candidates[j].channels[k].id + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
-                                    break;
-                            }
-                        }
+                        let $contestType = $('<h4>').append($spanType).append(contestTypeName);
+
+                        let $contestHeader = $('<div>').addClass("profile-contest-header").append($contestType).append($contestOffice);
+
+                        let $contestTable = $('<div>').addClass("profile-contest-table").append($contestHeader);
+
+                        let $contestEntry = $('<div>').addClass("profile-contest-entry").append($contestTable);
+
+                        let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
+
+                        $('.carousel-item').prepend($contestHeader);
+                        // End create contests list for each race
+
+
+
+
+                        // Create Table 
+                        let $trContent = $('<tr>').addClass("profile-candidate-entry");
+
+                        let $tdName = $('<td>').addClass("profile-cand-name");
+
+                        let $tdParty = $('<td>').addClass("profile-cand-party");
+
+                        let $tdUrl = $('<td>').addClass("profile-cand-url");
+
+                        let $tdSocial = $('<td>').addClass("profile-cand-social");
+
+
+                        let $candidateHeader = $('<th>').append('Candidate');
+
+                        let $partyHeader = $('<th>').append('Party');
+
+                        let $websiteHeader = $('<th>').append('Website');
+
+                        let $mediaHeader = $('<th>').append('Media');
+
+
+                        let $table = $('<table>').append('<tr>' + $candidateHeader + $partyHeader + $websiteHeader + $mediaHeader + '</tr>');
+
+                        $('.carousel-item').prepend($table)
+                            // End Create Table
                     }
                 }
             }

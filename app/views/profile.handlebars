@@ -68,7 +68,7 @@
                         <h6 class="profile-upcoming-elects">Upcoming Elections: </h6>
                     </div>
                 </div>
-                <div class="profile-panel-body">
+                <div class="profile-panel-body main">
                     <div id="profileCarouselIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#profileCarouselIndicators" data-slide-to="0" class="active"></li>
@@ -76,12 +76,21 @@
                             <li data-target="#profileCarouselIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
-                            
                             <div class="carousel-item active">
-                                <div class="profile-election-header">
+
+
+                                <!-- Start createElectionHeader(); -->
+
+                        <!--         <div class="profile-election-header">
                                     <h3 class="profile-election-title"></h3>
                                     <h4 class="profile-election-date"></h4>
-                                </div>
+                                </div> -->
+
+                                <!-- End createElectionHeader(); -->
+
+
+
+                                <!-- Start createContestsList(); -->
                                 <div class="profile-contests-list">
                                     <div class="profile-contest-entry">
                                         <div class="profile-contest-table">
@@ -89,6 +98,11 @@
                                                 <h4><span class="profile-red"></span> </h4>
                                                 <h4><span class="profile-red"></span></h4>
                                             </div>
+                                            <!-- End createContestsList(); -->
+
+
+
+                                            <!-- Start createTable(); -->
                                             <table>
                                                 <tr>
                                                     <th>Candidate</th>
@@ -110,12 +124,19 @@
                                                     </td>
                                                 </tr>
                                             </table>
+                                            <!-- End createTable(); -->                                            
+
+
                                         </div>
                                     </div>
                                     <!-- End profile contest entry -->
+                                    <!-- End jQuery for Table -->
+
                                 </div>
+
+
+
                                 <!-- End Election Entry -->
-   
                                 <div class="profile-polling-info">
                                     <div class="profile-polling-header">
                                         <h3>Polling Information</h3>
@@ -138,7 +159,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- End Carousel Item -->
                             <a class="carousel-control-prev profile-election-arrow" href="#profileCarouselIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -154,7 +174,6 @@
             </div>
         </div>
     </div>
-
     <!-- Representatives Display -->
     <div class="row">
         <div class="col-lg-12">
@@ -164,16 +183,13 @@
                 </div>
                 <div class="profile-panel-body">
                     <div class="card-deck">
-
                         <!-- Profile cards populate here via jQuery -->
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Address Modal -->
 <div id="address-modal" class="modal fade">
     <div class="modal-dialog" role="document">
