@@ -160,7 +160,7 @@ let democracy = {
 
 
 
-
+// THESE FUNCTIONS DONT DO WHAT WE WANT, NEED TO DISPLAY TABLE AND HEADERS CORRECTLY!
 
 
     populateIndicators: function(slide) {
@@ -187,6 +187,7 @@ let democracy = {
         }).done(function(data) {
 
             // Create the header for each race
+
             if (data.polititracker_elections.length === 0) {
 
                 let $electionTitle = $('<h3>').addClass("profile-election-title").append("NO UPCOMING ELECTIONS");
@@ -209,12 +210,13 @@ let democracy = {
 
 
                     $(".carousel-item").prepend($electionHeader);
+
                     //End create header for each race
 
 
 
-
                     // Create contest list for each race
+
                     for (var j = 0; j < data.polititracker_elections[0].contests.length; j++) {
 
                         let contestTypeName = data.polititracker_elections[0].contests[j].type
@@ -238,8 +240,8 @@ let democracy = {
                         let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
 
                         $('.carousel-item').prepend($contestHeader);
-                        // End create contests list for each race
 
+                        // End create contests list for each race
 
 
 
