@@ -1,7 +1,7 @@
 // These are counter variables to use as identifiers for the dynamically created elements that use jQuery
 
 let id = 0;
-let idTwo = 50;
+let id2 = 50;
 let idThree = 100
 let idFour = 150
 
@@ -52,12 +52,12 @@ let democracy = {
                 }
 
 
-                $('#' + id).append("<div class='card-footer text-center' id='" + idTwo + "'>" + "<a href='" + repWebsite + "' target='_blank'><i class='profile-reps-social profile-reps-web fa fa-address-book fa-2x' aria-hidden='true'></i></a>");
+                $('#' + id).append("<div class='card-footer text-center' id='" + id2 + "'>" + "<a href='" + repWebsite + "' target='_blank'><i class='profile-reps-social profile-reps-web fa fa-address-book fa-2x' aria-hidden='true'></i></a>");
 
 
                 // If rep social media channels exist, list them
                 if (!socialMedia) {
-                    $('#' + idTwo).append("Social Media N/A");
+                    $('#' + id2).append("Social Media N/A");
 
                 } else {
 
@@ -70,23 +70,23 @@ let democracy = {
                         switch (data.officials[i].channels[j].type) {
 
                             case "Facebook":
-                                $('#' + idTwo).append("<a href='http://www.facebook.com/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
+                                $('#' + id2).append("<a href='http://www.facebook.com/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-fb fa fa-facebook-square fa-2x' aria-hidden='true'></i></a>");
                                 break;
 
 
                             case "Twitter":
-                                $('#' + idTwo).append("<a href='http://www.twitter.com/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
+                                $('#' + id2).append("<a href='http://www.twitter.com/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-tw fa fa-twitter-square fa-2x' aria-hidden='true'></i></a>");
                                 break;
 
 
                             case "YouTube":
-                                $('#' + idTwo).append("<a href='http://www.youtube.com/user/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
+                                $('#' + id2).append("<a href='http://www.youtube.com/user/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-reps-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>");
                                 break;
                         }
                     }
                 }
 
-                idTwo++
+                id2++
                 id++
             }
         })
