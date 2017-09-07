@@ -213,15 +213,9 @@ let democracy = {
 
                     //End create header for each race
 
+                    let contestTypeName = data.polititracker_elections[0].contests[i].type
 
-
-                    // Create contest list for each race
-
-                    for (var j = 0; j < data.polititracker_elections[0].contests.length; j++) {
-
-                        let contestTypeName = data.polititracker_elections[0].contests[j].type
-
-                        let contestOfficeName = data.polititracker_elections[0].contests[j].office
+                        let contestOfficeName = data.polititracker_elections[0].contests[i].office
 
                         let $spanOffice = $('<span>').addClass('profile-red').append('Office: ')
 
@@ -241,36 +235,35 @@ let democracy = {
 
                         $('.carousel-item').prepend($contestHeader);
 
-                        // End create contests list for each race
 
 
 
-                        // Create Table 
-                        let $trContent = $('<tr>').addClass("profile-candidate-entry");
+                    //     // Create Table 
+                    //     let $trContent = $('<tr>').addClass("profile-candidate-entry");
 
-                        let $tdName = $('<td>').addClass("profile-cand-name");
+                    //     let $tdName = $('<td>').addClass("profile-cand-name");
 
-                        let $tdParty = $('<td>').addClass("profile-cand-party");
+                    //     let $tdParty = $('<td>').addClass("profile-cand-party");
 
-                        let $tdUrl = $('<td>').addClass("profile-cand-url");
+                    //     let $tdUrl = $('<td>').addClass("profile-cand-url");
 
-                        let $tdSocial = $('<td>').addClass("profile-cand-social");
-
-
-                        let $candidateHeader = $('<th>').append('Candidate');
-
-                        let $partyHeader = $('<th>').append('Party');
-
-                        let $websiteHeader = $('<th>').append('Website');
-
-                        let $mediaHeader = $('<th>').append('Media');
+                    //     let $tdSocial = $('<td>').addClass("profile-cand-social");
 
 
-                        let $table = $('<table>').append('<tr>' + $candidateHeader + $partyHeader + $websiteHeader + $mediaHeader + '</tr>');
+                    //     let $candidateHeader = $('<th>').append('Candidate');
 
-                        $('.carousel-item').prepend($table)
-                            // End Create Table
-                    }
+                    //     let $partyHeader = $('<th>').append('Party');
+
+                    //     let $websiteHeader = $('<th>').append('Website');
+
+                    //     let $mediaHeader = $('<th>').append('Media');
+
+
+                    //     let $table = $('<table>').append('<tr>' + $candidateHeader + $partyHeader + $websiteHeader + $mediaHeader + '</tr>');
+
+                    //     $('.carousel-item').prepend($table)
+                    //         // End Create Table
+                    // }
                 }
             }
         })
