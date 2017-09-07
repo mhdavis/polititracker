@@ -22,7 +22,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-
+// LOCAL SIGNUP
 passport.use('local-signup', new LocalStrategy ({
     usernameField : 'email',
     passwordField : 'password',
@@ -46,7 +46,9 @@ passport.use('local-signup', new LocalStrategy ({
           email: email,
           password: userPassword,
           firstname: req.body.firstname,
-          lastname: req.body.lastname
+          lastname: req.body.lastname,
+          state: req.body.state,
+          full_address: req.body.full_address
         };
 
         User.create(data).then(function (newUser, created) {

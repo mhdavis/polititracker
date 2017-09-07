@@ -20,6 +20,9 @@ module.exports = function(app, passport) {
       failureRedirect: '/'
     }));
 
+    // Custom Routes seperate from passport tutorial
+    app.put("/profile", isLoggedIn, authController.updateAddress);
+
     function isLoggedIn (req, res, next) {
       if (req.isAuthenticated()) {
         return next();

@@ -9,7 +9,11 @@ exportsObj.signin = function(req, res) {
 }
 
 exportsObj.profile = function(req, res) {
-	res.render('profile');
+	res.render("profile");
+}
+
+exportsObj.updateAddress = function (req, res) {
+	res.render("profile");
 }
 
 exportsObj.logout = function(req, res) {
