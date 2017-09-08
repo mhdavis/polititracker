@@ -11,8 +11,11 @@ user_exports.create = function(req, res) {
     password: generateHash(req.body.password),
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    full_address: full_address,
-    state: req.body.state
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    zipcode: req.body.zipcode,
+    full_address: full_address
   }).then(function (userRsp) {
     req.login(userRsp, function (err) {
       if (err) {
@@ -30,7 +33,7 @@ user_exports.show = function(req, res) {
     }
   })
   .then(function(userRsp) {
-      res.render("profile", userRsp);
+      res.render("profile", userRsp.dataValues);
 
     });
   }
@@ -44,10 +47,13 @@ user_exports.update = function (req, res) {
     }
   }).then(function (userRsp) {
       userRsp.update({
-        full_address: full_address,
-        state: req.body.state
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        full_address: full_address
       }).then(function () {
-        res.render("profile", userRsp);
+        res.render("profile", userRsp.dataValues);
       });
   });
 }
