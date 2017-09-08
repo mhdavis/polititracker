@@ -22,7 +22,7 @@
           <h5><a class="nav-link profile-link" data-toggle="modal" data-target="#address-modal">Address</a></h5>
         </li>
         <li class="nav-item">
-          <h5><a class="nav-link profile-link" href="#">Log Out</a></h5>
+          <h5><a class="nav-link profile-link" href="/logout">Log Out</a></h5>
         </li>
       </ul>
     </div>
@@ -280,7 +280,7 @@
       </div>
       <div class="modal-body">
 
-        <form id="update-address" name="update-address" method="post" action="/profile">
+        <form id="update-address" name="update-address" method="put" action="/profile">
           <div class="signup-address-block">
             <label for="street">Street Address</label><br>
             <input class="profile-input" name="street" type="text" placeholder="1234 Sesame St." /><br>
@@ -348,7 +348,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="profile-btn profile-update-address-btn btn">Update</button>
+        <input type="submit" class="profile-btn profile-update-address-btn btn" value="Update"/>
         <button type="button" class="profile-btn profile-update-close-btn btn" data-dismiss="modal">Cancel</button>
       </div>
     </div>

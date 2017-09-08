@@ -49,8 +49,8 @@ app.set("view engine", "handlebars");
 
 // Set Routes
 // =============================================================
-// auth routes
-require("./app/routes/auth.js")(app, passport);
+// routes
+require("./app/routes/routes.js")(app, passport);
 // api routes
 require("./app/routes/api-routes")(app);
 
@@ -61,7 +61,7 @@ require('./app/config/passport/passport.js')(passport, db.User);
 // Sync Sequelize Models then Start Server
 // =============================================================
 // NOTE: force: true object overwrites server data
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

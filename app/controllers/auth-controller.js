@@ -1,25 +1,14 @@
-let exportsObj = {};
+let auth_exports = {};
 
-exportsObj.signup = function(req, res) {
-	res.render('signup');
-}
-
-exportsObj.signin = function(req, res) {
+auth_exports.signin = function(req, res) {
 	res.render('signin');
 }
 
-exportsObj.profile = function(req, res) {
-	res.render("profile");
-}
 
-exportsObj.updateAddress = function (req, res) {
-	res.render("profile");
-}
-
-exportsObj.logout = function(req, res) {
+auth_exports.logout = function(req, res) {
   req.session.destroy(function (err) {
   res.redirect('/');
   });
 }
 
-module.exports = exportsObj;
+module.exports = auth_exports;
