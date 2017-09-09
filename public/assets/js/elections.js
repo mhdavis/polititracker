@@ -17,7 +17,6 @@ function createElectionHeader(resp) {
   .append($electionTitle)
   .append($electionDate);
 
-
 }
 
 function createTableHeaders() {
