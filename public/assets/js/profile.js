@@ -3,9 +3,9 @@ let id2 = 50;
 
 $(document).ready(function() {
    democracy.getReps();
-   democracy.getPollingInfo();
+   // democracy.getPollingInfo();
    democracy.getNumberOfUpcomingElections();
-   democracy.getCandidates();
+   // democracy.getCandidates();
 });
 
 let democracy = {
@@ -45,7 +45,6 @@ let democracy = {
             }
 
             $('#' + id).append("<div class='card-footer text-center' id='" + id2 + "'>" + "<a href='" + repWebsite + "' target='_blank'><i class='profile-reps-social profile-reps-web fa fa-address-book fa-2x' aria-hidden='true'></i></a>");
-
 
             // If rep social media channels exist, list them
             if (!socialMedia) {
@@ -92,108 +91,107 @@ let democracy = {
    },
 
 
-   getPollingInfo: function() {
-      $.ajax({
-         type: 'GET',
-         url: "/api/elections",
-         dataType: "json",
-         contentType: "application/json;charset=utf-8"
-      }).done(function(data) {
+// FIX THESE FUNCTIONS
 
-         if (data.polititracker_elections.length === 0) {
-            $(".main").html("NO UPCOMING ELECTIONS");
+   // getPollingInfo: function() {
+   //    $.ajax({
+   //       type: 'GET',
+   //       url: "/api/elections",
+   //       dataType: "json",
+   //       contentType: "application/json;charset=utf-8"
+   //    }).done(function(data) {
 
-         } else {
-            for (var i = 0; i < data.polititracker_elections.length; i++) {
-               let pollingLocation = data.polititracker_elections[i].pollingLocations;
+   //       if (data.polititracker_elections.length === 0) {
+   //          $(".main").html("NO UPCOMING ELECTIONS");
 
-               let pollingHours = data.polititracker_elections[i].pollingLocations[0].pollingHours;
+   //       } else {
+   //          for (var i = 0; i < data.polititracker_elections.length; i++) {
+   //             let pollingLocation = data.polititracker_elections[i].pollingLocations;
 
-               let locationName = data.polititracker_elections[i].pollingLocations[0].address.locationName;
+   //             let pollingHours = data.polititracker_elections[i].pollingLocations[0].pollingHours;
 
-               let street = data.polititracker_elections[i].pollingLocations[0].address.line1;
+   //             let locationName = data.polititracker_elections[i].pollingLocations[0].address.locationName;
 
-               let city = data.polititracker_elections[i].pollingLocations[0].address.city;
+   //             let street = data.polititracker_elections[i].pollingLocations[0].address.line1;
 
-               let state = data.polititracker_elections[i].pollingLocations[0].address.state;
+   //             let city = data.polititracker_elections[i].pollingLocations[0].address.city;
 
-               let zip = data.polititracker_elections[i].pollingLocations[0].address.zip;
+   //             let state = data.polititracker_elections[i].pollingLocations[0].address.state;
 
-               if (pollingLocation) {
-                  $("#polling-location").append(locationName);
+   //             let zip = data.polititracker_elections[i].pollingLocations[0].address.zip;
 
-                  $("#polling-address").append(street + "<br>" + city + ", " + state + " " + zip);
+   //             if (pollingLocation) {
+   //                $("#polling-location").append(locationName);
 
-                  $("#polling-hours").append(pollingHours);
+   //                $("#polling-address").append(street + "<br>" + city + ", " + state + " " + zip);
 
-                  $("#polling-times").append("Polling Hours:");
+   //                $("#polling-hours").append(pollingHours);
 
-               } else {
-                  $("#polling-location").append("Location Unavailable");
-               
-               }
-            }
-         }
-      })
-   },
+   //                $("#polling-times").append("Polling Hours:");
 
+   //             } else {
+   //                $("#polling-location").append("Location Unavailable");
 
-   getCandidates: function() {
-      $.ajax({
-         type: 'GET',
-         url: "/api/elections",
-         dataType: "json",
-         contentType: "application/json;charset=utf-8"
-
-      }).done(function(data) {
-         if (data.polititracker_elections.length === 0) {
-            let $electionTitle = $('<h3>').addClass("profile-election-title").append("NO UPCOMING ELECTIONS");
-
-            let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle);
-
-            $(".carousel-item").append($electionHeader);
-
-         } else {
-
-            for (let i = 0; i < data.polititracker_elections.length; i++) {
-
-               // Create Election Header
-               let $electionTitle = $('<h3>').addClass("profile-election-title").append(data.polititracker_elections[i].election.name);
-
-               let $electionDate = $('<h4>').addClass("profile-election-date").append(data.polititracker_elections[i].election.electionDay);
-
-               let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle).append($electionDate);
-
-               $(".carousel-item").prepend($electionHeader);
+   //             }
+   //          }
+   //       }
+   //    })
+   // },
 
 
-               // Create Contest Header
-               let contestTypeName = data.polititracker_elections[0].contests[i].type;
+   // getCandidates: function() {
+   //    $.ajax({
+   //       type: 'GET',
+   //       url: "/api/elections",
+   //       dataType: "json",
+   //       contentType: "application/json;charset=utf-8"
 
-               let contestOfficeName = data.polititracker_elections[0].contests[i].office;
+   //    }).done(function(data) {
+   //       if (data.polititracker_elections.length === 0) {
+   //          let $electionTitle = $('<h3>').addClass("profile-election-title").append("NO UPCOMING ELECTIONS");
 
-               let $spanOffice = $('<span>').addClass('profile-red').append('Office: ');
+   //          let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle);
 
-               let $contestOffice = $('<h4>').append($spanOffice).append(contestOfficeName);
+   //          $(".carousel-item").append($electionHeader);
 
-               let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ');
+   //       } else {
 
-               let $contestType = $('<h4>').append($spanType).append(contestTypeName);
+   //          for (let i = 0; i < data.polititracker_elections.length; i++) {
 
-               let $contestHeader = $('<div>').addClass("profile-contest-header").append($contestType).append($contestOffice);
+               // // Create Election Header
+               // let $electionTitle = $('<h3>').addClass("profile-election-title").append(data.polititracker_elections[i].election.name);
 
-               let $contestTable = $('<div>').addClass("profile-contest-table").append($contestHeader);
+               // let $electionDate = $('<h4>').addClass("profile-election-date").append(data.polititracker_elections[i].election.electionDay);
 
-               let $contestEntry = $('<div>').addClass("profile-contest-entry").append($contestTable);
-
-               let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
-
-               $(".carousel-item").prepend($electionHeader);
-
-               $('.carousel-item').prepend($contestHeader);
+               // let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle).append($electionDate);
 
 
-               //     // Create Table 
+               // // Create Contest Header
+               // let contestTypeName = data.polititracker_elections[0].contests[i].type;
+
+               // let contestOfficeName = data.polititracker_elections[0].contests[i].office;
+
+               // let $spanOffice = $('<span>').addClass('profile-red').append('Office: ');
+
+               // let $contestOffice = $('<h4>').append($spanOffice).append(contestOfficeName);
+
+               // let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ');
+
+               // let $contestType = $('<h4>').append($spanType).append(contestTypeName);
+
+               // let $contestHeader = $('<div>').addClass("profile-contest-header").append($contestType).append($contestOffice);
+
+               // let $contestTable = $('<div>').addClass("profile-contest-table").append($contestHeader);
+
+               // let $contestEntry = $('<div>').addClass("profile-contest-entry").append($contestTable);
+
+               // let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
+
+               // $(".carousel-item").prepend($electionHeader);
+               // $('.carousel-item').prepend($contestHeader);
+
+
+               // Create Table 
                // let $trContent = $('<tr>').addClass("profile-candidate-entry");
                // let $tdName = $('<td>').addClass("profile-cand-name");
                // let $tdParty = $('<td>').addClass("profile-cand-party");
@@ -207,10 +205,10 @@ let democracy = {
                // let $table = $('<table>').append('<tr>' + $candidateHeader + $partyHeader + $websiteHeader + $mediaHeader + '</tr>');
 
                // $('.carousel-item').prepend($table)
-                  //         // End Create Table
-                  // }
+               //         // End Create Table
+               // }
             }
-         }
-      })
-   }
-}
+         // }
+      // })
+   // }
+// }
