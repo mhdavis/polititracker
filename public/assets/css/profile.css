@@ -173,7 +173,7 @@ td, th {
     padding: 8px 1.5px;
 }
 
-.profile-contest-entry {
+.profile-contest-table {
   margin: 1em 2em;
 }
 
@@ -186,10 +186,6 @@ td, th {
 
 .profile-contests-list {
   margin: 1em 2em;
-}
-
-.profile-contest-entry {
-  margin: 1em 0;
 }
 
 .profile-election-arrow {
