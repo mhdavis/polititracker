@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define('user', {
+    var User = sequelize.define('User', {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            notEmpty: true,
             validate: {
-                len: [1],
                 isEmail: true
             }
         },
@@ -12,41 +12,53 @@ module.exports = function(sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
+            notEmpty: true
+
         },
 
         firstname: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
+            notEmpty: true
+
         },
 
         lastname: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
+            notEmpty: true
+
+        },
+
+        street: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          notEmpty: true
+        },
+
+        city: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          notEmpty: true
         },
 
         state: {
           type: DataTypes.STRING,
           allowNull: false,
-          validate: {
-            len: [1]
-          }
+          notEmpty: true
+        },
+
+        zipcode: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          notEmpty: true
         },
 
         full_address: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
+            notEmpty: true
+
         }
 
 
