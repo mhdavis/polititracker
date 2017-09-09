@@ -4,7 +4,7 @@ module.exports = function (app) {
 
   let key = process.env.GOOGLE_CIVIC_INFO_APIKEY;
   // let userAddress = req.body.full_address;
-  let userAddress="104 Stadium Dr. Chapel Hill, NC 27514";
+  let userAddress="104 Stadium Dr, Chapel Hill, NC 27514";
   // let userState req.body.state;
   let userState="NC";
   let formattedAddress = userAddress.replace(/\s/g, "%20");
@@ -21,6 +21,7 @@ module.exports = function (app) {
     });
   });
 
+
   app.get("/api/elections", function (req, res) {
     let electsRoute = "elections?key=";
     let userAddress = req.body.address;
@@ -36,7 +37,7 @@ module.exports = function (app) {
 
       let electDetailPromise = new Promise (function (resolve, reject) {
         let electionsIdsArr = [];
-        for (let i=1; i < elections.length; i++) {
+        for (let i=0; i < elections.length; i++) {
           let electionId = elections[i].id;
           let divisionId = elections[i].ocdDivisionId;
 

@@ -240,6 +240,13 @@ td, th {
   font-weight: bold;
 }
 
+#polling-location {
+    /*color: #E60000;*/
+    color: white;
+  font-weight: bold;
+
+}
+
 
 /* PROFILE REPRESENTATIVES
 ------------------------------------------------------------ */
@@ -332,4 +339,8 @@ td, th {
 
 .profile-update-close-btn:hover {
   background-color: #E60000;
+}
+
+.img-frame {
+  height: 250px;
 }
