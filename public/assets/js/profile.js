@@ -88,56 +88,56 @@ let democracy = {
 
          $(".profile-upcoming-elects").append("<span style='color: red;'>" + " " + data.polititracker_elections.length + "</span>");
       })
-   }
-}
+   },
 
 
    // FIX THESE FUNCTIONS
 
-//    getPollingInfo: function() {
-//       $.ajax({
-//          type: 'GET',
-//          url: "/api/elections",
-//          dataType: "json",
-//          contentType: "application/json;charset=utf-8"
-//       }).done(function(data) {
+   getPollingInfo: function() {
+      $.ajax({
+         type: 'GET',
+         url: "/api/elections",
+         dataType: "json",
+         contentType: "application/json;charset=utf-8"
+      }).done(function(data) {
 
-//          if (data.polititracker_elections.length === 0) {
-//             $(".main").html("NO UPCOMING ELECTIONS");
+         if (data.polititracker_elections.length === 0) {
+            $(".main").html("NO UPCOMING ELECTIONS");
 
-//          } else {
-//             for (var i = 0; i < data.polititracker_elections.length; i++) {
-//                let pollingLocation = data.polititracker_elections[i].pollingLocations;
+         } else {
+            for (var i = 0; i < data.polititracker_elections.length; i++) {
+               let pollingLocation = data.polititracker_elections[i].pollingLocations;
 
-//                let pollingHours = data.polititracker_elections[i].pollingLocations[0].pollingHours;
+               let pollingHours = data.polititracker_elections[i].pollingLocations[0].pollingHours;
 
-//                let locationName = data.polititracker_elections[i].pollingLocations[0].address.locationName;
+               let locationName = data.polititracker_elections[i].pollingLocations[0].address.locationName;
 
-//                let street = data.polititracker_elections[i].pollingLocations[0].address.line1;
+               let street = data.polititracker_elections[i].pollingLocations[0].address.line1;
 
-//                let city = data.polititracker_elections[i].pollingLocations[0].address.city;
+               let city = data.polititracker_elections[i].pollingLocations[0].address.city;
 
-//                let state = data.polititracker_elections[i].pollingLocations[0].address.state;
+               let state = data.polititracker_elections[i].pollingLocations[0].address.state;
 
-//                let zip = data.polititracker_elections[i].pollingLocations[0].address.zip;
+               let zip = data.polititracker_elections[i].pollingLocations[0].address.zip;
 
-//                if (pollingLocation) {
-//                   $("#polling-location").append(locationName);
+               if (pollingLocation) {
+                  $("#polling-location").append(locationName);
 
-//                   $("#polling-address").append(street + "<br>" + city + ", " + state + " " + zip);
+                  $("#polling-address").append(street + "<br>" + city + ", " + state + " " + zip);
 
-//                   $("#polling-hours").append(pollingHours);
+                  $("#polling-hours").append(pollingHours);
 
-//                   $("#polling-times").append("Polling Hours:");
+                  $("#polling-times").append("Polling Hours:");
 
-//                } else {
-//                   $("#polling-location").append("Location Unavailable");
+               } else {
+                  $("#polling-location").append("Location Unavailable");
 
-//                }
-//             }
-//          }
-//       })
-//    },
+               }
+            }
+         }
+      })
+   }
+}
 
 //    getCandidates: function() {
 //       $.ajax({
@@ -221,22 +221,13 @@ let democracy = {
 //                      for (var k = 0; k < race.candidates.length; k++) {
 
 //                         if (race.candidates[k]) {
-//                            let $trName = $('<tr>')
+//                            let $trCandidate = $('<tr>')
 //                               .append('<td>' + race.candidates[k].name + '</td>')
 //                               .append('<td>' + (race.candidates[k].party ? race.candidates[k].party : "N/A") + '</td>')
 //                               .append('<td>' + (race.candidates[k].candidateUrl ? race.candidates[k].party : "N/A") + '</td>')
 //                               .append('<td>' + (race.candidates[k].social ? race.candidates[k].party : "N/A") + '</td>')
 
-
-//                            // let $trParty = $('<tr>').append('PARTY HERE')
-
-//                            $table.append($trName);
-//                            // $table.append($trParty);
-
-//                            console.log(race.office);
-//                            console.log(race.type);
-//                            console.log(race.candidates[k]);
-//                            for (var l = 0; l < race.candidates[k].length; l++) {}
+//                            $table.append($trCandidate);
 //                         }
 //                      }
 //                   }

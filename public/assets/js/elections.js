@@ -5,15 +5,38 @@ contest table
   -> contest header
   -> candidate table
 */
+function populateIndicators(slide) {
+  let $li = $("<li>")
+  .attr("data-target", "#profileCarouselIndicators")
+  .attr("data-slide-to", slide);
+
+  if (slide === 0) {
+    $li.addClass("active");
+  }
+
+  // .carousel-indicators is the <ol>
+  $(".carousel-indicators").append($li);
+}
 
 function main() {
    // make ajax call to elections API
-   // when response object returned
-   // NOTE: FOR elections in object.polititracker array
-   // populate indicators (populateIndicators)
-   createCarouselItem()
-      // append to carousel inner div
-}
+   $.ajax({
+      type: 'GET',
+      url: "/api/elections",
+      dataType: "json",
+      contentType: "application/json;charset=utf-8"
+   }).done(function(data) {
+         // NOTE: FOR elections in object.polititracker array
+         for (var i = 0; i < data.polititracker_elections.length; i++) {
+            createCarouselItem(i)
+               // when response object returned
+               populateIndicators(i)
+               // append to carousel inner div
+         }
+      })
+
+   }
+
 
 // CAROUSEL ITEM FUNCTIONS
 // ========================================================
@@ -50,7 +73,7 @@ function createElectionHeader(election) {
    $electionHeader
       .append($electionTitle)
       .append($electionDate);
-}
+} 
 
 // CONTEST FUNCTIONS
 // ========================================================
@@ -86,7 +109,8 @@ function createContestHeader(contest) {
   $('<span>')
   .addClass('profile-red')
   .append('Office: ');
- 
+
+  // create h4 with contest office
  let $contestOffice = 
   $('<h4>')
   .append($spanOffice)
@@ -97,11 +121,13 @@ function createContestHeader(contest) {
   .addClass('profile-red')
   .append('Contest Type: ');
  
+// create h4 with contest type
  let $contestType = 
   $('<h4>')
     .append($spanType)
     .append(contestTypeName);
 
+// append to contest header
  let $contestHeader = 
   $('<div>')
     .addClass("profile-contest-header")
@@ -112,22 +138,17 @@ function createContestHeader(contest) {
   $('<div>')
     .addClass("profile-contest-table")
     .append($contestHeader);
-
-   // create h4 with contest office
-   // create h4 with contest type
-   // append to contest header
 }
 
 function createCandidateTable(resp) {
    // create candidate table header (static)
    let arr = ["Candidate", "Party", "Website", "Media"];
-
    let $tr = $("<tr>");
-
+ 
+    // NOTE: FOR candidates in array
    for (let i = 0; i < arr.length; i++) {
       let $th = $("<th>").val(arr[i]);
       $tr.append($th);
-      // NOTE: FOR candidates in array
       // create candidate row (createCandidateEntry)
       // append to candidate table
    }
