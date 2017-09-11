@@ -3,7 +3,7 @@ let id2 = 50;
 
 $(document).ready(function() {
    democracy.getReps();
-   democracy.getPollingInfo();
+   // democracy.getPollingInfo();
    democracy.getNumberOfUpcomingElections();
    // democracy.getCandidates();
 });
