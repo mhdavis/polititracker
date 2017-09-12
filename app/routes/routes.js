@@ -12,6 +12,7 @@ module.exports = function(app, passport) {
     }));
 
     // userController routing
+    
     // signin
     app.get("/", function (req, res) {
       res.render("signin");

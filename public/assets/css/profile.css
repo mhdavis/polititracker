@@ -1,7 +1,6 @@
 /*
 COLOR PALETTE
 ------------------------------------------------------------
-
 my blue = #2B428E
 their blue = #173673
 dark blue = #10244b
@@ -90,7 +89,6 @@ div.profile-jumbo-banner h2 {
 .profile-jumbo-info {
   background-color: #0b1832;
   padding: 1em;
-  height: 100%;
 }
 
 
@@ -174,7 +172,7 @@ td, th {
     padding: 8px 1.5px;
 }
 
-.profile-contest-entry {
+.profile-contest-table {
   margin: 1em 2em;
 }
 
@@ -187,10 +185,6 @@ td, th {
 
 .profile-contests-list {
   margin: 1em 2em;
-}
-
-.profile-contest-entry {
-  margin: 1em 0;
 }
 
 .profile-election-arrow {
@@ -238,6 +232,13 @@ td, th {
   /*color: #0b1832;*/
   color: #E60000;
   font-weight: bold;
+}
+
+#polling-location {
+    /*color: #E60000;*/
+    color: white;
+  font-weight: bold;
+
 }
 
 
@@ -332,4 +333,8 @@ td, th {
 
 .profile-update-close-btn:hover {
   background-color: #E60000;
+}
+
+.img-frame {
+  height: 250px;
 }

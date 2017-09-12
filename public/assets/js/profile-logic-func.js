@@ -38,6 +38,14 @@ function createCandidateEntry(candidate) {
   let $url = $("<td>").addClass("profile-cand-url");
   let $social = $("<td>").addClass("profile-cand-social");
 
+  candidate.name ? $name.val(candidate.name) : $name.val("N/A");
+  candidate.party ? $party.val(candidate.party) : $party.val("N/A");
+  candidate.url ? $url.val(candidate.candidateUrl) : $url.val("N/A");
+
+  $tr.append($name);
+  $tr.append($party);
+  $tr.append($url);
+
   if (candidate.channels) {
     for (let i=0; i < candidate.channels.length; i++) {
       let $a = $("<a>")
@@ -73,9 +81,11 @@ function createCandidateEntry(candidate) {
     $tr.append($social);
   }
 
+  $candidateTable.append($tr);
+
 }
 
-function createPollingInfo(resp) {
+function createPollingInfo(information) {
   let $pollingInfo = $("<div>").addClass("profile-polling-info");
 
   let $pollingHeader = $("<div>").addClass("profile-polling-header");
@@ -86,7 +96,7 @@ function createPollingInfo(resp) {
   let $col7 = ("<div>").addClass("col-7");
   let $col5 = ("<div>").addClass("col-5");
 
-  let address = resp.pollingLocations[0].address;
+  let address = information.address;
 
   $col7.append(
     $("<p>").html(
@@ -117,7 +127,7 @@ function createPollingInfo(resp) {
   .append($pollingHeader)
   .append($pollingBody);
 
-  return $pollingInfo;
+  $contestTable.append($pollingInfo);
 }
 
 function createContestsList (resp) {
