@@ -28,74 +28,74 @@ function getCandidates() {
 
             let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle).append($electionDate);
 
-            $(".carousel-item").prepend($electionHeader);
-
 
             // Create Contest Header
-            let contestTypeName = data.polititracker_elections[0].contests[i].type;
 
-            let contestOfficeName = data.polititracker_elections[0].contests[i].office;
+            for (let l = 0; l < data.polititracker_elections[i].contests.length; l++) {
+               let contestTypeName = data.polititracker_elections[i].contests[l].type;
 
-            let $spanOffice = $('<span>').addClass('profile-red').append('Office: ');
+               let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ');
 
-            let $contestOffice = $('<h4>').append($spanOffice).append(contestOfficeName);
+               let contestOfficeName = data.polititracker_elections[i].contests[l].office;
 
-            let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ');
+               let $spanOffice = $('<span>').addClass('profile-red').append('Office: ');
 
-            let $contestType = $('<h4>').append($spanType).append(contestTypeName);
+               let $contestOffice = $('<h4>').append($spanOffice).append(contestOfficeName);
 
-            let $contestHeader = $('<div>').addClass("profile-contest-header").append($contestType).append($contestOffice);
+               let $contestType = $('<h4>').append($spanType).append(contestTypeName);
 
-            let $contestTable = $('<div>').addClass("profile-contest-table").append($contestHeader);
+               let $contestHeader = $('<div>').addClass("profile-contest-header").append($contestType).append($contestOffice);
 
-            let $contestEntry = $('<div>').addClass("profile-contest-entry").append($contestTable);
+               let $contestTable = $('<div>').addClass("profile-contest-table").append($contestHeader);
 
-            let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
+               let $contestEntry = $('<div>').addClass("profile-contest-entry").append($contestTable);
 
-            $('.carousel-item').prepend($contestHeader);
+               let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
 
-            // Create Table 
-            let $trContent = $('<tr>').addClass("profile-candidate-entry");
-            let $tdName = $('<td>').addClass("profile-cand-name");
-            let $tdParty = $('<td>').addClass("profile-cand-party");
-            let $tdUrl = $('<td>').addClass("profile-cand-url");
-            let $tdSocial = $('<td>').addClass("profile-cand-social");
+               $(".carousel-item")
+                  .append($contestHeader).prepend($electionHeader)
 
-            let $candidateHeader = $('<th>').append('Candidate');
-            let $partyHeader = $('<th>').append('Party');
-            let $websiteHeader = $('<th>').append('Website');
-            let $mediaHeader = $('<th>').append('Media');
+               // Create Table 
+               let $trContent = $('<tr>').addClass("profile-candidate-entry");
+               let $tdName = $('<td>').addClass("profile-cand-name");
+               let $tdParty = $('<td>').addClass("profile-cand-party");
+               let $tdUrl = $('<td>').addClass("profile-cand-url");
+               let $tdSocial = $('<td>').addClass("profile-cand-social");
 
-            let $header = $('<tr>')
-               .append($candidateHeader)
-               .append($partyHeader)
-               .append($websiteHeader)
-               .append($mediaHeader);
+               let $candidateHeader = $('<th>').append('Candidate');
+               let $partyHeader = $('<th>').append('Party');
+               let $websiteHeader = $('<th>').append('Website');
+               let $mediaHeader = $('<th>').append('Media');
 
-            let $table = $("<table>").prepend($header);
-            $('.carousel-item').prepend($table)
+               let $header = $('<tr>')
+                  .append($candidateHeader)
+                  .append($partyHeader)
+                  .append($websiteHeader)
+                  .append($mediaHeader);
 
-            if (data.polititracker_elections[i].contests) {
-               for (var j = 0; j < data.polititracker_elections[i].contests.length; j++) {
+               let $table = $("<table>").prepend($header);
+               $('.carousel-item').append($table)
 
-                  let race = data.polititracker_elections[i].contests[j];
+               if (data.polititracker_elections[i].contests) {
+                  for (var j = 0; j < data.polititracker_elections[i].contests.length; j++) {
 
-                  for (var k = 0; k < race.candidates.length; k++) {
+                     let race = data.polititracker_elections[i].contests[j];
 
-                     if (race.candidates[k]) {
-                        let $trCandidate = $('<tr>')
-                           .append('<td>' + race.candidates[k].name + '</td>')
-                           .append('<td>' + (race.candidates[k].party ? race.candidates[k].party : "N/A") + '</td>')
-                           .append('<td>' + (race.candidates[k].candidateUrl ? race.candidates[k].party : "N/A") + '</td>')
-                           .append('<td>' + (race.candidates[k].social ? race.candidates[k].party : "N/A") + '</td>')
+                     for (var k = 0; k < race.candidates.length; k++) {
 
-                        $table.append($trCandidate);
+                        if (race.candidates[k]) {
+                           let $trCandidate = $('<tr>')
+                              .append('<td>' + race.candidates[k].name + '</td>')
+                              .append('<td>' + (race.candidates[k].party ? race.candidates[k].party : "N/A") + '</td>')
+                              .append('<td>' + (race.candidates[k].candidateUrl ? race.candidates[k].party : "N/A") + '</td>')
+                              .append('<td>' + (race.candidates[k].social ? race.candidates[k].party : "N/A") + '</td>')
+
+                           $table.append($trCandidate);
+                        }
                      }
                   }
-               }
 
-            } else {
-               console.log('NO CONTEST');
+               }
             }
          }
       }

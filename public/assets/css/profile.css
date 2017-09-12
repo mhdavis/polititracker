@@ -339,3 +339,7 @@ td, th {
 .img-frame {
   height: 250px;
 }
+
+table {
+  margin-bottom: 3em;
+}
