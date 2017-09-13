@@ -8,7 +8,6 @@ $(document).ready(function() {
    democracy.getNumberOfUpcomingElections();
 });
 
-
 let democracy = {
 
    getReps: function() {
@@ -45,7 +44,6 @@ let democracy = {
 
             $(".card-deck").append($repCard);
 
-            // If rep photo does not exist then use a placeholder image
             if (!repPhoto) {
                $('#' + id).append($placeholderImg);
 
@@ -53,7 +51,6 @@ let democracy = {
                $('#' + id).append($repImage);
             }
 
-            // If rep party is democratic, change the string to democrat
             if (repParty === "Democratic") {
                $('#' + id).append($democrat);
 
@@ -63,7 +60,6 @@ let democracy = {
 
             $('#' + id).append($website);
 
-            // If rep social media channels exist, list them
             if (!socialMedia) {
                // $('#' + id2).append("");
 
@@ -79,7 +75,6 @@ let democracy = {
 
                   let $youtube = "<a href='http://www.youtube.com/user/" + socialChannel + "' target='_blank'><i class='profile-reps-social profile-social-yt fa fa-youtube-play fa-2x' aria-hidden='true'></i></a>";
 
-                  // Switch statement to correspond the correct icon with the corect channel type
                   switch (data.officials[i].channels[j].type) {
 
                      case "Facebook":
@@ -102,6 +97,7 @@ let democracy = {
       })
    },
 
+
    getNumberOfUpcomingElections: function() {
       $.ajax({
          type: 'GET',
@@ -114,6 +110,7 @@ let democracy = {
          $(".profile-upcoming-elects").append($numberOfElections);
       })
    },
+
 
    getPollingInfo: function() {
       $.ajax({
@@ -132,7 +129,6 @@ let democracy = {
                .html("Polling info unavailable");
 
          } else if (!data.polititracker_elections[0].pollingLocations) {
-
             $("#polling-location")
                .html("Polling info unavailable");
 
@@ -167,6 +163,7 @@ let democracy = {
          }
       })
    },
+
 
    getCandidates() {
       $.ajax({
