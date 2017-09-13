@@ -76,6 +76,4 @@ function generateHash(password) {
   return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 };
 
-//delete user
-
 module.exports = user_exports;

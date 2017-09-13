@@ -1,9 +1,12 @@
 const sessionController = require('../controllers/session-controller.js');
 const userController = require('../controllers/user-controller.js');
 
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
 
-    // authController routing (session)
+    // ==================================================================
+    // AUTH CONTROLLER ROUTING
+    // ==================================================================
+
     app.get('/logout', sessionController.logout);
 
     app.post('/', passport.authenticate('local-signin', {
@@ -11,21 +14,26 @@ module.exports = function(app, passport) {
       failureRedirect: '/'
     }));
 
-    // userController routing
-    
-    // signin
+    // ==================================================================
+    // USER CONTROLLER ROUTING
+    // ==================================================================
+
+    // Signin Routes
+    // ===================================================
     app.get("/", function (req, res) {
       res.render("signin");
     });
 
-    // signup
+    // Signup Routes
+    // ===================================================
     app.get("/signup", function (req, res) {
         res.render("signup");
     });
 
     app.post("/signup", userController.create);
 
-    // profile
+    // Profile Routes
+    // ===================================================
     app.get("/profile", userController.show);
 
     app.put("/profile", userController.update);
