@@ -4,9 +4,9 @@ module.exports = function (app) {
 
   let key = process.env.GOOGLE_CIVIC_INFO_APIKEY;
   // let userAddress = req.body.full_address;
-  let userAddress="104 Stadium Dr. Chapel Hill, NC 27514";
+  let userAddress="15 Estabrooke Dr. Orono, ME 04469";
   // let userState req.body.state;
-  let userState="NC";
+  let userState="ME";
   let formattedAddress = userAddress.replace(/\s/g, "%20");
   let apiUrl = "https://www.googleapis.com/civicinfo/v2/"
 

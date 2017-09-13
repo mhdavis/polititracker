@@ -5,9 +5,9 @@ contest table
   -> candidate table
 */
 
-main();
+populateElectionsPanel();
 
-function main() {
+function populateElectionsPanel() {
   // make ajax call to elections API
   $.ajax({
     type: 'GET',
@@ -30,14 +30,16 @@ function main() {
       }
     }
 
+    if (electionNumber === 0) {
+        let $noElections =
+        $("<h4>")
+        .addClass("text-center")
+        .text("No Upcoming Elections");
+
+        $("#profile-elections-body").html($noElections);
+    }
+
     $("#upcoming-elections-number").text(electionNumber);
-
-
-    //  else {
-    //   let $noElections = $("<h4>").text("No Upcoming Elections");
-    //
-    // }
-
 
     $("carousel").carousel();
   });
