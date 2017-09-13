@@ -28,9 +28,9 @@ function getCandidates() {
 
             let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle).append($electionDate);
 
-
             // Create Contest Header
             for (let j = 0; j < data.polititracker_elections[i].contests.length; j++) {
+
                let contestTypeName = data.polititracker_elections[i].contests[j].type;
 
                let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ');
@@ -54,7 +54,6 @@ function getCandidates() {
                $(".carousel-item")
                   .append($contestHeader).prepend($electionHeader)
 
-
                // Create Table 
                let $trContent = $('<tr>').addClass("profile-candidate-entry");
                let $tdName = $('<td>').addClass("profile-cand-name");
@@ -77,20 +76,18 @@ function getCandidates() {
                $('.carousel-item').append($table)
 
                if (data.polititracker_elections[i].contests) {
-                  for (var k = 0; k < data.polititracker_elections[i].contests.length; k++) {
+    
+                     let race = data.polititracker_elections[i].contests[j];
 
-                     let race = data.polititracker_elections[i].contests[k];
-
-                     for (var l = 0; l < race.candidates.length; l++) {
-                        if (race.candidates[l]) {
+                     for (var k = 0; k < race.candidates.length; k++) {
+                        if (race.candidates[k]) {
                            let $trCandidate = $('<tr>')
-                              .append('<td>' + race.candidates[l].name + '</td>')
-                              .append('<td>' + (race.candidates[l].party ? race.candidates[l].party : "N/A") + '</td>')
-                              .append('<td>' + (race.candidates[l].candidateUrl ? race.candidates[l].party : "N/A") + '</td>')
-                              .append('<td>' + (race.candidates[k].social ? race.candidates[l].party : "N/A") + '</td>')
+                              .append('<td>' + race.candidates[k].name + '</td>')
+                              .append('<td>' + (race.candidates[k].party ? race.candidates[k].party : "N/A") + '</td>')
+                              .append('<td>' + (race.candidates[k].candidateUrl ? race.candidates[k].party : "N/A") + '</td>')
+                              .append('<td>' + (race.candidates[k].social ? race.candidates[k].party : "N/A") + '</td>')
 
                            $table.append($trCandidate);
-                        }
                      }
                   }
                }

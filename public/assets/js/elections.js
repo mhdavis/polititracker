@@ -37,7 +37,6 @@ function main() {
 
    }
 
-
 // CAROUSEL ITEM FUNCTIONS
 // ========================================================
 function createCarouselItem(resp) {
