@@ -21,7 +21,6 @@ module.exports = function(app) {
       });
    });
 
-
    app.get("/api/elections", function(req, res) {
       let electsRoute = "elections?key=";
       let userAddress = req.body.address;

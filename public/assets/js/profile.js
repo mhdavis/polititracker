@@ -5,7 +5,6 @@ $(document).ready(function() {
    democracy.getReps();
    democracy.getPollingInfo();
    democracy.getNumberOfUpcomingElections();
-   // democracy.getCandidates();
 });
 
 let democracy = {
@@ -131,19 +130,18 @@ let democracy = {
             for (var i = 0; i < data.polititracker_elections.length; i++) {
                let pollingLocation = data.polititracker_elections[i].pollingLocations;
 
-               let pollingHours = data.polititracker_elections[i].pollingLocations[0].pollingHours;
+               let pollingHours = data.polititracker_elections[i].pollingLocations[i].pollingHours;
 
-               let locationName = data.polititracker_elections[i].pollingLocations[0].address.locationName;
+               let locationName = data.polititracker_elections[i].pollingLocations[i].address.locationName;
 
-               let street = data.polititracker_elections[i].pollingLocations[0].address.line1;
+               let street = data.polititracker_elections[i].pollingLocations[i].address.line1;
 
-               let city = data.polititracker_elections[i].pollingLocations[0].address.city;
+               let city = data.polititracker_elections[i].pollingLocations[i].address.city;
 
-               let state = data.polititracker_elections[i].pollingLocations[0].address.state;
+               let state = data.polititracker_elections[i].pollingLocations[i].address.state;
 
-               let zip = data.polititracker_elections[i].pollingLocations[0].address.zip;
+               let zip = data.polititracker_elections[i].pollingLocations[i].address.zip;
 
-               if (pollingLocation) {
                   $("#polling-location").append(locationName);
 
                   $("#polling-address").append(street + "<br>" + city + ", " + state + " " + zip);
@@ -151,11 +149,6 @@ let democracy = {
                   $("#polling-hours").append(pollingHours);
 
                   $("#polling-times").append("Polling Hours:");
-
-               } else {
-                  $("#polling-location").append("Location Unavailable");
-
-               }
             }
          }
       })
