@@ -52,7 +52,6 @@ module.exports = function (app) {
           if (results.length < electionsIdsArr.length) {
             axios.get(apiUrl +  voterRoute + key + "&address=" + formattedAddress + "&electionId=" + electionsIdsArr[index]).then(function (voterRes) {
               results.push(voterRes.data);
-              console.log(voterRes.data);
               index++;
               next();
             }, reject);

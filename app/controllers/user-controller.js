@@ -39,23 +39,71 @@ user_exports.show = function(req, res) {
   }
 
 user_exports.update = function (req, res) {
+  console.log("==========================================");
+  console.log("I'm in the PUT request");
+  console.log("==========================================");
+
+  console.log("==========================================");
+  console.log("REQUEST BODY");
+  console.log(req.body);
+  console.log("==========================================");
+
+
   let full_address = buildAddress(req.body);
 
-  db.User.findOne({
+  let newAddress = {
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    zipcode: req.body.zipcode,
+    full_address: full_address
+  };
+
+  console.log("==========================================");
+  console.log("NEW ADDRESS");
+  console.log(newAddress);
+  console.log("==========================================");
+
+
+  db.User.update(newAddress, {
     where: {
       email: req.user.email
     }
   }).then(function (userRsp) {
-      userRsp.update({
-        street: req.body.street,
-        city: req.body.city,
-        state: req.body.state,
-        zipcode: req.body.zipcode,
-        full_address: full_address
-      }).then(function () {
-        res.render("profile", userRsp.dataValues);
-      });
+    console.log("==========================================");
+    console.log(userRsp);
+    console.log("==========================================");
+
+    db.User.findOne({
+      where: {
+        email: req.user.email
+      }
+    }).then(function (userRsp) {
+      res.json(userRsp);
+    });
   });
+
+  // db.User.findOne({
+  //   where: {
+  //     email: req.user.email
+  //   }
+  // }).then(function (userRsp) {
+  //     let newAddress = {
+  //       street: req.body.street,
+  //       city: req.body.city,
+  //       state: req.body.state,
+  //       zipcode: req.body.zipcode,
+  //       full_address: full_address
+  //     };
+  //
+  //     userRsp.update(newAddress, {
+  //       where: {
+  //         email: req.user.email
+  //       }
+  //     }).then(function () {
+  //       res.render("profile", userRsp.dataValues);
+  //     });
+  // });
 }
 
 function buildAddress(obj) {
