@@ -15,19 +15,29 @@ function main() {
     dataType: "json",
     contentType: "application/json;charset=utf-8"
   }).done(function(data) {
-    // NOTE: FOR elections in object.polititracker array
-    console.log(data);
+    // FOR elections in object.polititracker array
     let pt_elections = data.polititracker_elections;
-    console.log("===================================================");
-    console.log(pt_elections);
-    console.log("===================================================");
+    let electionNumber = 0;
 
-    for (let i = 0; i < pt_elections.length; i++) {
+    for (let i=0; i < pt_elections.length; i++) {
+      if (pt_elections[i].contests) {
+      electionNumber++;
+
       createCarouselItem(pt_elections[i], i);
       // when response object returned
       populateIndicators(i);
       // append to carousel inner div
+      }
     }
+
+    $("#upcoming-elections-number").text(electionNumber);
+
+
+    //  else {
+    //   let $noElections = $("<h4>").text("No Upcoming Elections");
+    //
+    // }
+
 
     $("carousel").carousel();
   });
@@ -52,7 +62,7 @@ function populateIndicators(slide) {
 // ========================================================
 
 function createCarouselItem(pt_election, iterator) {
-   $carouselItem = $("<div>").addClass("carousel-item");
+  let $carouselItem = $("<div>").addClass("carousel-item");
    // *** if carousel item is first
    if (iterator === 0) {
       // add active class
@@ -60,31 +70,35 @@ function createCarouselItem(pt_election, iterator) {
    }
 
    let $electionHeader = $("<div>").addClass("profile-election-header");
-   createElectionHeader(pt_election.election);
+   createElectionHeader(pt_election.election, $electionHeader);
+   $carouselItem.append($electionHeader);
    // append to carousel item div (automatically)
    let $contestList = $('<div>').addClass("profile-contest-list");
-   createContestList(pt_election.contests);
+   createContestList(pt_election.contests, $contestList);
+   $carouselItem.append($contestList);
    // append to carousel item div (automatically)
    let $pollingInfo = $('<div>').addClass("profile-polling-info");
-   createPollingInfo(pt_election.pollingLocations[0]);
+   createPollingInfo(pt_election.pollingLocations[0], $pollingInfo);
+   $carouselItem.append($pollingInfo);
    // append ot carousel item div
-   $("#carouselInner").append($carouselItem);
+   $("#carouselInner").append($carouselItem); // carousel inner is a already-existing div
 }
 
 // ========================================================
-//  ELECTION
+//  ELECTION HEADER
 // ========================================================
 
-function createElectionHeader(election) {
+function createElectionHeader(election, electionHeaderDiv) {
+  console.log(election.name);
    let $electionTitle = $("<h3>")
       .addClass("profile-election-title")
-      .val(election.name);
+      .text(election.name);
 
    let $electionDate = $("<h4>")
-      .addClass("profile-election-title")
-      .val(election.electionDay);
+      .addClass("profile-election-title profile-red")
+      .text(election.electionDay);
 
-   $electionHeader
+   electionHeaderDiv
       .append($electionTitle)
       .append($electionDate);
 }
@@ -93,34 +107,30 @@ function createElectionHeader(election) {
 // CONTEST FUNCTIONS
 // ========================================================
 
-function createContestList(contests) {
-   // NOTE: FOR contest table
+function createContestList(contests, contestListDiv) {
+   // FOR contest table
+
    for (let i = 0; i < contests.length; i++) {
       let $contestTable = $('<div>').addClass('profile-contest-table');
-      createContestTable(contests[i]);
+      createContestTable(contests[i], $contestTable);
       // append contest table to contest list
+      contestListDiv.append($contestTable);
    }
 }
 
-function createContestTable(contest) {
+function createContestTable(contest, contestTableDiv) {
    /*
    contest table
     -> contest header
     -> candidate table
    */
-
-   // create contest table div
-   let $contestTable =
-    $('<div>')
-      .addClass("profile-contest-table");
-
    // append contest header to contest table div (inside function)
-   createContestHeader(contest);
+   createContestHeader(contest, contestTableDiv);
    // append candidate table to contest table div (inside)
-   createCandidateTable(contest.candidates);
+   createCandidateTable(contest.candidates, contestTableDiv);
 }
 
-function createContestHeader(contest) {
+function createContestHeader(contest, contestTableDiv) {
 
  let contestTypeName = contest.type;
  let contestOfficeName = contest.office;
@@ -154,38 +164,96 @@ function createContestHeader(contest) {
     .append($contestType)
     .append($contestOffice);
 
- $contestTable.append($contestHeader);
+ contestTableDiv.append($contestHeader);
 }
 
-function createCandidateTable(candidates) {
+function createCandidateTable(candidates, contestTableDiv) {
    let $candidateTable = $("<table>").addClass("profile-candidate-table")
 
    // create candidate table header (static)
    let arr = ["Candidate", "Party", "Website", "Media"];
    let $tr = $("<tr>");
 
-    // NOTE: FOR candidates in array
+    // FOR candidates in array
    for (let i = 0; i < arr.length; i++) {
-      let $th = $("<th>").val(arr[i]);
+      let $th = $("<th>").text(arr[i]);
       $tr.append($th);
    }
 
    $candidateTable.append($tr);
 
    for (let i = 0; i < candidates.length; i++) {
-     createCandidateEntry(candidates[i]);
+     createCandidateEntry(candidates[i], $candidateTable);
    }
 
    // create candidate row (createCandidateEntry)
    // append to candidate table
-   $contestTable.append($candidateTable);
+   contestTableDiv.append($candidateTable);
+ }
+
+ function createCandidateEntry(candidate, candidateTableDiv) {
+   let $tr = $("<tr>").addClass("profile-cand-entry");
+
+   let $name = $("<td>").addClass("profile-cand-name");
+   let $party = $("<td>").addClass("profile-cand-party");
+   let $url = $("<td>").addClass("profile-cand-url");
+   let $social = $("<td>").addClass("profile-cand-social");
+
+   candidate.name ? $name.text(candidate.name) : $name.text("N/A");
+   candidate.party ? $party.text(candidate.party) : $party.text("N/A");
+   candidate.url ? $url.text(candidate.candidateUrl) : $url.text("N/A");
+
+   $tr.append($name);
+   $tr.append($party);
+   $tr.append($url);
+
+   if (candidate.channels) {
+     for (let i=0; i < candidate.channels.length; i++) {
+       let $a = $("<a>")
+       .addClass("profile-social")
+       .attr("target", "_blank")
+       .attr("href", candidate.channels[i].id);
+       let $i = $("<i>")
+       .addClass("fa")
+       .attr("aria-hidden", "true");
+
+       switch (candidate.channels.type) {
+         case "Facebook":
+           $a.addClass("profile-social-fb")
+           $i.addClass("fa-facebook-square");
+           break;
+         case "Twitter":
+           $a.addClass("profile-social-tw");
+           $i.addClass("fa-twitter-square");
+           break;
+         case "Youtube":
+           $a.addClass("profile-social-yt");
+           $i.addClass("fa-youtube-play");
+           break;
+       }
+
+       $a.append($i);
+       $social.append($a);
+     }
+
+   } else {
+     $social.text("N/A");
+   }
+
+   $tr.append($name);
+   $tr.append($party);
+   $tr.append($url);
+   $tr.append($social);
+
+   candidateTableDiv.append($tr);
+
  }
 
  // ========================================================
  // POLLING INFO FUNCTIONS
  // ========================================================
 
- function createPollingInfo(information) {
+ function createPollingInfo(information, pollingInfoDiv) {
    let $pollingInfo = $("<div>").addClass("profile-polling-info");
 
    let $pollingHeader = $("<div>").addClass("profile-polling-header");
@@ -193,8 +261,8 @@ function createCandidateTable(candidates) {
    $pollingHeader.append($pollingTitle);
 
    let $pollingBody = $("<div>").addClass("profile-polling-body row");
-   let $col7 = ("<div>").addClass("col-7");
-   let $col5 = ("<div>").addClass("col-5");
+   let $col7 = $("<div>").addClass("col-7");
+   let $col5 = $("<div>").addClass("col-5");
 
    let address = information.address;
 
@@ -215,7 +283,7 @@ function createCandidateTable(candidates) {
    $col5.append(
      $("<p>").html(
        "<span class='profile-polling-highlight'>Polling Hours</span><br>" +
-       pollingLocations[0].pollingHours
+       information.pollingHours
      )
    )
 
@@ -227,5 +295,5 @@ function createCandidateTable(candidates) {
    .append($pollingHeader)
    .append($pollingBody);
 
-   $contestTable.append($pollingInfo);
+   pollingInfoDiv.append($pollingInfo);
  }
