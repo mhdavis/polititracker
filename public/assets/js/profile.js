@@ -11,7 +11,6 @@ $(document).ready(function() {
 
 let democracy = {
 
-
    getReps: function() {
       $.ajax({
          type: 'GET',
@@ -66,7 +65,7 @@ let democracy = {
 
             // If rep social media channels exist, list them
             if (!socialMedia) {
-               $('#' + id2).append("Social Media N/A");
+               // $('#' + id2).append("");
 
             } else {
 
@@ -103,7 +102,6 @@ let democracy = {
       })
    },
 
-
    getNumberOfUpcomingElections: function() {
       $.ajax({
          type: 'GET',
@@ -117,7 +115,6 @@ let democracy = {
       })
    },
 
-
    getPollingInfo: function() {
       $.ajax({
          type: 'GET',
@@ -125,12 +122,19 @@ let democracy = {
          dataType: "json",
          contentType: "application/json;charset=utf-8"
       }).done(function(data) {
+         console.log(data.polititracker_elections.length)
 
          if (data.polititracker_elections.length === 0) {
-            $(".main").html("NO UPCOMING ELECTIONS");
+            $(".carousel-item")
+               .html("NO UPCOMING ELECTIONS");
+               
+               $("#polling-location")
+               .html("Polling info unavailable");
 
          } else if (!data.polititracker_elections[0].pollingLocations) {
-            $("#polling-location").append("Polling info unavailable");
+
+            $("#polling-location")
+               .html("Polling info unavailable");
 
          } else {
             for (var i = 0; i < data.polititracker_elections[0].pollingLocations.length; i++) {
@@ -148,18 +152,21 @@ let democracy = {
 
                let zip = data.polititracker_elections[0].pollingLocations[i].address.zip;
 
-               $("#polling-location").append(locationName);
+               $("#polling-location")
+                  .append(locationName);
 
-               $("#polling-address").append(street + "<br>" + city + ", " + state + " " + zip);
+               $("#polling-address")
+                  .append(street + "<br>" + city + ", " + state + " " + zip);
 
-               $("#polling-hours").append(pollingHours);
+               $("#polling-hours")
+                  .append(pollingHours);
 
-               $("#polling-times").append("Polling Hours:");
+               $("#polling-times")
+                  .append("Polling Hours:");
             }
          }
       })
    },
-
 
    getCandidates() {
       $.ajax({
@@ -169,61 +176,91 @@ let democracy = {
          contentType: "application/json;charset=utf-8"
 
       }).done(function(data) {
-         if (data.polititracker_elections.length === 0) {
-            let $electionTitle = $('<h3>').addClass("profile-election-title").append("NO UPCOMING ELECTIONS");
-
-            let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle);
-
-            $(".carousel-item").append($electionHeader);
-
-         } else {
 
             for (let i = 0; i < data.polititracker_elections.length; i++) {
 
                // Create Election & Date Header
-               let $electionTitle = $('<h3>').addClass("profile-election-title").append(data.polititracker_elections[i].election.name);
+               let $electionTitle = $('<h3>')
+                  .addClass("profile-election-title")
+                  .append(data.polititracker_elections[i].election.name);
 
-               let $electionDate = $('<h4>').addClass("profile-election-date").append(data.polititracker_elections[i].election.electionDay);
+               let $electionDate = $('<h4>')
+                  .addClass("profile-election-date")
+                  .append(data.polititracker_elections[i].election.electionDay);
 
-               let $electionHeader = $('<div>').addClass("profile-election-header").append($electionTitle).append($electionDate);
+               let $electionHeader = $('<div>')
+                  .addClass("profile-election-header")
+                  .append($electionTitle)
+                  .append($electionDate);
 
                // Create Contest Header
                for (let j = 0; j < data.polititracker_elections[i].contests.length; j++) {
 
                   let contestTypeName = data.polititracker_elections[i].contests[j].type;
 
-                  let $spanType = $('<span>').addClass('profile-red').append('Contest Type: ');
+                  let $spanType = $('<span>')
+                     .addClass('profile-red')
+                     .append('Contest Type: ');
 
                   let contestOfficeName = data.polititracker_elections[i].contests[j].office;
 
-                  let $spanOffice = $('<span>').addClass('profile-red').append('Office: ');
+                  let $spanOffice = $('<span>')
+                     .addClass('profile-red')
+                     .append('Office: ');
 
-                  let $contestOffice = $('<h4>').append($spanOffice).append(contestOfficeName);
+                  let $contestOffice = $('<h4>')
+                     .append($spanOffice)
+                     .append(contestOfficeName);
 
-                  let $contestType = $('<h4>').append($spanType).append(contestTypeName);
+                  let $contestType = $('<h4>')
+                     .append($spanType)
+                     .append(contestTypeName);
 
-                  let $contestHeader = $('<div>').addClass("profile-contest-header").append($contestType).append($contestOffice);
+                  let $contestHeader = $('<div>')
+                     .addClass("profile-contest-header")
+                     .append($contestType).append($contestOffice);
 
-                  let $contestTable = $('<div>').addClass("profile-contest-table").append($contestHeader);
+                  let $contestTable = $('<div>')
+                     .addClass("profile-contest-table")
+                     .append($contestHeader);
 
-                  let $contestEntry = $('<div>').addClass("profile-contest-entry").append($contestTable);
+                  let $contestEntry = $('<div>')
+                     .addClass("profile-contest-entry")
+                     .append($contestTable);
 
-                  let $contestsList = $('<div>').addClass("profile-contests-list").append($contestEntry);
+                  let $contestsList = $('<div>')
+                     .addClass("profile-contests-list")
+                     .append($contestEntry);
 
                   $(".carousel-item")
-                     .append($contestHeader).prepend($electionHeader)
+                     .append($contestHeader)
+                     .prepend($electionHeader)
 
                   // Create Table 
                   let $trContent = $('<tr>').addClass("profile-candidate-entry");
-                  let $tdName = $('<td>').addClass("profile-cand-name");
-                  let $tdParty = $('<td>').addClass("profile-cand-party");
-                  let $tdUrl = $('<td>').addClass("profile-cand-url");
-                  let $tdSocial = $('<td>').addClass("profile-cand-social");
+                  let $tdName = $('<td>')
+                     .addClass("profile-cand-name");
+                  
+                  let $tdParty = $('<td>')
+                     .addClass("profile-cand-party");
+                  
+                  let $tdUrl = $('<td>')
+                     .addClass("profile-cand-url");
+                  
+                  let $tdSocial = $('<td>')
+                     .addClass("profile-cand-social");
 
-                  let $candidateHeader = $('<th>').append('Candidate');
-                  let $partyHeader = $('<th>').append('Party');
-                  let $websiteHeader = $('<th>').append('Website');
-                  let $mediaHeader = $('<th>').append('Media');
+                  let $candidateHeader = $('<th>')
+                     .append('Candidate');
+
+                  let $partyHeader = $('<th>')
+                     .append('Party');
+
+                  let $websiteHeader = $('<th>')
+                     .append('Website');
+
+                  let $mediaHeader = $('<th>')
+                     .append('Media');
 
                   let $header = $('<tr>')
                      .append($candidateHeader)
@@ -231,8 +268,11 @@ let democracy = {
                      .append($websiteHeader)
                      .append($mediaHeader);
 
-                  let $table = $("<table>").prepend($header);
-                  $('.carousel-item').append($table)
+                  let $table = $("<table>")
+                     .prepend($header);
+
+                  $('.carousel-item')
+                     .append($table)
 
                   if (data.polititracker_elections[i].contests) {
 
@@ -246,8 +286,8 @@ let democracy = {
                               .append('<td>' + (race.candidates[k].candidateUrl ? race.candidates[k].party : "N/A") + '</td>')
                               .append('<td>' + (race.candidates[k].social ? race.candidates[k].party : "N/A") + '</td>')
 
-                           $table.append($trCandidate);
-                        }
+                           $table
+                           .append($trCandidate);
                      }
                   }
                }
