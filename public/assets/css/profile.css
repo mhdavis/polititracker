@@ -64,6 +64,10 @@ body {
   color: #FFFFFF;
 }
 
+a:not([href]):not([tabindex]):hover {
+  color: #E60000;  
+}
+
 /* PROFILE JUMBOTRON
 ------------------------------------------------------------ */
 

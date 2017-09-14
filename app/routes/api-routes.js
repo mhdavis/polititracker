@@ -31,25 +31,25 @@ module.exports = function (app, passport) {
   // Reps API
   // ===================================================
   app.get("/api/reps", function (req, res) {
-    console.log(req.user);
-
-    if (req.user) {
-      let userAddress = req.user.full_address;
-      let formattedAddress = userAddress.replace(/\s/g, "%20");
-    } else {
-      res.send("Please Login to access Representatives API");
-    }
 
     let repsRoute = "representatives?key=";
 
     if (req.user) {
+      let userAddress = req.user.full_address;
+      let formattedAddress = userAddress.replace(/\s/g, "%20");
+
       axios.get(apiUrl + repsRoute + key + "&address=" + formattedAddress).then(function (repsRes) {
         res.json(repsRes.data);
 
       }).catch(function (error) {
         console.log(error);
       });
+    } else {
+
+      res.send("Please Login to access Representatives API");
+
     }
+
   });
 
   // Elections API

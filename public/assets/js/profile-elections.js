@@ -1,11 +1,6 @@
-/*
-contests is an array
-contest table
-  -> contest header
-  -> candidate table
-*/
-
-populateElectionsPanel();
+$(document).ready(function () {
+  populateElectionsPanel();
+});
 
 function populateElectionsPanel() {
   // make ajax call to elections API
@@ -91,7 +86,6 @@ function createCarouselItem(pt_election, iterator) {
 // ========================================================
 
 function createElectionHeader(election, electionHeaderDiv) {
-  console.log(election.name);
    let $electionTitle = $("<h3>")
       .addClass("profile-election-title")
       .text(election.name);
