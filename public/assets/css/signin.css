@@ -6,11 +6,18 @@ their dark red = #E60000
 my red = #AB2027
 */
 
+/* OVERALL
+------------------------------------------------------------ */
+
 body {
   color: white;
   background-color: #173673;
   font-family: 'Quicksand', sans-serif;
 }
+
+.signin-red { color: #E60000 }
+.signin-white { color: #FFFFFF }
+.signin-blue { color: #173673 }
 
 .signin-container {
   margin-top: 5rem;
@@ -19,10 +26,6 @@ body {
 #signin-title {
   font-family: 'Pacifico', cursive;
 }
-
-.signin-red { color: #E60000 }
-.signin-white { color: #FFFFFF }
-.signin-blue { color: #173673 }
 
 .signin-label {
   margin-right: 0.5em;

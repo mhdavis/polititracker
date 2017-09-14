@@ -31,6 +31,7 @@ module.exports = function (app, passport) {
   // Reps API
   // ===================================================
   app.get("/api/reps", function (req, res) {
+    console.log(req.user);
 
     if (req.user) {
       let userAddress = req.user.full_address;
@@ -55,17 +56,13 @@ module.exports = function (app, passport) {
   // ===================================================
   app.get("/api/elections", function (req, res) {
 
+    let electsRoute = "elections?key=";
+
     if (req.user) {
       let userAddress = req.user.full_address;
       let userState = req.user.state;
       let formattedAddress = userAddress.replace(/\s/g, "%20");
-    } else {
-      res.send("Please login to access Elections API");
-    }
 
-    let electsRoute = "elections?key=";
-
-    if (req.user) {
       axios.get(apiUrl + electsRoute + key).then(function (electsRes) {
 
         let voterRoute = "voterinfo?key=";
@@ -117,7 +114,9 @@ module.exports = function (app, passport) {
         console.log(error);
       }); // end axios call
 
-    } // end if req.users condition
+    } else {
+      res.send("Please login to access Elections API");
+    }
 
   }); // app.get elections
 
