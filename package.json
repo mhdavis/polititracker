@@ -1,5 +1,5 @@
 {
-  "name": "localrace",
+  "name": "polititracker",
   "version": "1.0.0",
   "description": "An application for tracking local politics in your area.",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mhdavis/localrace.git"
+    "url": "git+https://github.com/mhdavis/polititracker.git"
   },
   "author": "Michael Davis, Kyle Scott, Nick Grismore",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mhdavis/localrace/issues"
+    "url": "https://github.com/mhdavis/polititracker/issues"
   },
-  "homepage": "https://github.com/mhdavis/localrace#readme",
+  "homepage": "https://github.com/mhdavis/polititracker#readme",
   "devDependencies": {},
   "dependencies": {
     "axios": "^0.16.2",
