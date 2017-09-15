@@ -182,7 +182,6 @@ function createCandidateTable(candidates, contestTableDiv) {
      createCandidateEntry(candidates[i], $candidateTable);
    }
 
-   // create candidate row (createCandidateEntry)
    // append to candidate table
    contestTableDiv.append($candidateTable);
  }
@@ -197,7 +196,16 @@ function createCandidateTable(candidates, contestTableDiv) {
 
    candidate.name ? $name.text(candidate.name) : $name.text("N/A");
    candidate.party ? $party.text(candidate.party) : $party.text("N/A");
-   candidate.url ? $url.text(candidate.candidateUrl) : $url.text("N/A");
+   if (candidate.candidateUrl) {
+     let $urlAnchor = $("<a>")
+     .attr("target", "_blank")
+     .attr("href", candidate.candidateUrl)
+     .text("Website");
+
+     $url.append($urlAnchor);
+   } else {
+     $url.text("N/A");
+   }
 
    $tr.append($name);
    $tr.append($party);
