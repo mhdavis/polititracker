@@ -46,10 +46,10 @@ This postmortem serves as an opportunity to reflect on the new techniques and te
 ##### JQuery <a name="lo-jquery"></a>
 - (Frontend) - Learned how to write JQuery to dynamically render information based on data received via API call
 
-#### Axios <a name="lo-axios"></a>
+##### Axios <a name="lo-axios"></a>
 - Learned how to query API through backend of application
 
-#### Sequelize <a name="lo-sequelize"></a>
+##### Sequelize <a name="lo-sequelize"></a>
 - Used all known CRUD operations (create, read, update, delete) on users and user information.
 - Used `sequelize-cli` to initialize `/models` and `/config` files
 
