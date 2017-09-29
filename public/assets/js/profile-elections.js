@@ -123,7 +123,11 @@ function createContestTable(contest, contestTableDiv) {
    // append contest header to contest table div (inside function)
    createContestHeader(contest, contestTableDiv);
    // append candidate table to contest table div (inside)
-   createCandidateTable(contest.candidates, contestTableDiv);
+   if (contest.candidates) {
+     createCandidateTable(contest.candidates, contestTableDiv);
+   } else if(contest.type === "referendum") {
+     createReferendumEntry(contest, contestTableDiv);
+   }
 }
 
 function createContestHeader(contest, contestTableDiv) {
@@ -163,8 +167,20 @@ function createContestHeader(contest, contestTableDiv) {
  contestTableDiv.append($contestHeader);
 }
 
+function createReferendumEntry(referendum, contestTableDiv) {
+  let $referendumTable = $("<table>")
+  .addClass("profile-candidate-table");
+
+  let $td = $("<td>")
+  .addClass("referendum-text")
+  .text(referendum.referendumText);
+
+  $referendumTable.append($td);
+  contestTableDiv.append($referendumTable);
+}
+
 function createCandidateTable(candidates, contestTableDiv) {
-   let $candidateTable = $("<table>").addClass("profile-candidate-table")
+   let $candidateTable = $("<table>").addClass("profile-candidate-table");
 
    // create candidate table header (static)
    let arr = ["Candidate", "Party", "Website", "Media"];
